@@ -17,8 +17,9 @@ cd team7/ProgrammingAssignment1/*
 
 Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 
-*wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
-tar xf test200.v2.0.tar.xz*
+*wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz*
+
+*tar xf test200.v2.0.tar.xz*
 
 
 For this program to work on Linux, Maven has to be installed
