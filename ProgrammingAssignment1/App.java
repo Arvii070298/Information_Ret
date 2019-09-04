@@ -1,4 +1,3 @@
-
 package Team7.Assign1;
 import java.io.File;
 import java.io.FileInputStream;
@@ -108,7 +107,7 @@ public class App
         System.out.println("Using BM25 scoring function");
 
         for(int i=0;i<entry.length;i++) {
-            System.out.println("Requested query is :"+entry[i]);
+            System.out.println("Requested query is: "+entry[i]);
 
             /* QueryParser will convert queries into Lucene queries  */
 
