@@ -5,7 +5,7 @@
 
 
      <groupId>Team7</groupId>
-  <artifactId>assignment01</artifactId>
+  <artifactId>Assign1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   
@@ -15,7 +15,7 @@
   </properties>
   
 
-  <name>assignment01</name>
+  <name>Assign1</name>
   <url>http://maven.apache.org</url>
 
     <repositories>
@@ -86,7 +86,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>team1.assignment01.App</mainClass>
+                            <mainClass>team1.Assign1.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
