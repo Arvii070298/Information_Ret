@@ -1,11 +1,10 @@
-package Team7.Assign1;
+package team07.assign01;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -22,7 +21,6 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.BasicStats;
-import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.search.similarities.SimilarityBase;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -34,10 +32,11 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 /*Reading the files from the TREC Complex Answer Retrieval data set that has been unpacked */
 
 
-public class Score
+public class score
+
 {
-    private static final String INDEX_DIR = "index";
-    private static final String FILE_DIR = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+   // private static final String INDEX_DIR = "index";
+   // private static final String FILE_DIR = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
     /* Documents are added in the form of Id and Text */
 
@@ -57,9 +56,11 @@ public class Score
 
 
     public static void main( String[] args ) throws IOException, ParseException
-    {
+    {	
+    	String P = args[1];
+		final String P1 = args[0];
 
-        Path path = FileSystems.getDefault().getPath(INDEX_DIR, "lucene");
+    	Path path = Paths.get(P);
         Directory Dir = FSDirectory.open(path);
         IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
         IndexWriter writer=  new IndexWriter(Dir, config);
@@ -71,8 +72,8 @@ public class Score
 
         /* Using getParaId() and getTextOnly(), paragraph Id and Text is obtained for each para */
 
-        final FileInputStream fileInputStream2 = new FileInputStream(new File(FILE_DIR));
-        for(Data.Paragraph p: DeserializeData.iterableParagraphs(fileInputStream2)) {
+        FileInputStream stream = new FileInputStream(new File(P1));
+        for(Data.Paragraph p: DeserializeData.iterableParagraphs(stream)) {
             String pId = p.getParaId();
             String textOnly = p.getTextOnly();
             Document document = createDocument(pId, textOnly);
@@ -90,7 +91,7 @@ public class Score
 
 
 
-        Path path1 = FileSystems.getDefault().getPath(INDEX_DIR, "lucene");
+        Path path1 = Paths.get(P);
         Directory Dir1 = FSDirectory.open(path1);
         IndexReader reader = DirectoryReader.open(Dir1);
 
