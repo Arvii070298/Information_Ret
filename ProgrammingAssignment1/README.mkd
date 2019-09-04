@@ -1,0 +1,70 @@
+Team 7
+Medhini Shankar Narayan
+Akhila Bezawada
+Sai Arvind Reddy desiReddy
+
+JDK Version used - 12.0.2
+
+Apache-maven version - 3.6.2
+
+This repository need to be cloned by 
+
+git clone https://gitlab.cs.unh.edu/cs753-853-2019/team7.git
+cd team7/ProgrammingAssignment1/
+
+Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
+
+wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
+tar xf test200.v2.0.tar.xz
+
+For this program to work on Linux, Maven has to be installed
+
+Instructions to install Maven in Terminal:
+sudo apt install maven
+
+Program gets complied by
+mvn clean compile assembly:single
+
+To run the Program,
+java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.App.java 
+The above command creates indexes and gives out queries according to BM25 scoring function
+java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.Score.java 
+The above command gives out queries according to custom scoring function
+
+
+
+Team 7
+Medhini Shankar Narayan
+Akhila Bezawada
+Sai Arvind Reddy desiReddy
+
+JDK Version used - 12.0.2
+
+Apache-maven version - 3.6.2
+
+This repository need to be cloned by 
+
+git clone https://gitlab.cs.unh.edu/cs753-853-2019/team7.git
+cd team7/ProgrammingAssignment1/
+
+Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
+
+wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
+tar xf test200.v2.0.tar.xz
+
+For this program to work on Linux, Maven has to be installed
+
+Instructions to install Maven in Terminal:
+sudo apt install maven
+
+Program gets complied by
+mvn clean compile assembly:single
+
+To run the Program,
+java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.App.java 
+The above command creates indexes and gives out queries according to BM25 scoring function
+java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.Score.java 
+The above command gives out queries according to custom scoring function
+
+
+
