@@ -1,9 +1,11 @@
-package Team7.Assign1;
+package team07.assign01;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -32,8 +34,8 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 
 public class App
 {
-    private static final String INDEX_DIR = "index";
-    private static final String FILE_DIR = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+   // private static final String INDEX_DIR = "index";
+  //  private static final String FILE_DIR = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
     /* Documents are added in the form of Id and Text */
 
@@ -53,22 +55,25 @@ public class App
 
 
     public static void main( String[] args ) throws IOException, ParseException
-    {
+    { 
+    	System.setProperty("file.encoding", "UTF-8");	
+    	String indexPath = args[1];
+		final String paragraphsFile = args[0];
 
-        Path path = FileSystems.getDefault().getPath(INDEX_DIR, "lucene");
+        Path path = Paths.get(indexPath);
         Directory Dir = FSDirectory.open(path);
         IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
         IndexWriter writer=  new IndexWriter(Dir, config);
         writer.deleteAll();
-
+        System.out.println("indexing done");
 
         /* Using the DeserializeData.iterableParagraphs,
         each paragraph from the corpus is converted to Lucene document */
 
         /* Using getParaId() and getTextOnly(), paragraph Id and Text is obtained for each para */
 
-        final FileInputStream fileInputStream2 = new FileInputStream(new File(FILE_DIR));
-        for(Data.Paragraph p: DeserializeData.iterableParagraphs(fileInputStream2)) {
+		FileInputStream stream = new FileInputStream(new File(paragraphsFile));
+		for(Data.Paragraph p: DeserializeData.iterableParagraphs(stream)) {
             String pId = p.getParaId();
             String textOnly = p.getTextOnly();
             Document document = createDocument(pId, textOnly);
@@ -86,7 +91,7 @@ public class App
 
 
 
-        Path path1 = FileSystems.getDefault().getPath(INDEX_DIR, "lucene");
+        Path path1 = Paths.get(indexPath);
         Directory Dir1 = FSDirectory.open(path1);
         IndexReader reader = DirectoryReader.open(Dir1);
 
