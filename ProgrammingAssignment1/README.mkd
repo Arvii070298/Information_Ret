@@ -14,7 +14,7 @@ This repository need to be cloned by
 *git clone https://gitlab.cs.unh.edu/cs753-853-2019/team7.git  
 cd team7/ProgrammingAssignment1/*
 
-This program has **2** java files and **1** pom.xml file in total
+This program has **2** java files (App.java and score.java) and **1** pom.xml file in total
 
 Download the TREC Complex Answer Retri
 eval “test200“ dataset and unpack
