@@ -28,13 +28,14 @@ Instructions to install Maven in Terminal:
 *sudo apt install maven*
 
 
-Program gets complied by
+Program gets complied by  
 *mvn clean compile assembly:single*
 
-To run the Program,
-*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.App.java *
-The above command creates indexes and gives out queries according to BM25 scoring function
-*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.Score.java *
+To run the Program,  
+*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.App.java *  
+The above command creates indexes and gives out queries according to BM25 scoring function    
+
+*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar Team7.Assign1.Score.java *                                                   
 The above command gives out queries according to custom scoring function
 
 
