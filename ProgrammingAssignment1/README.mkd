@@ -2,32 +2,9 @@
 **Medhini Shankar Narayan  
 Akhila Bezawada  
 Sai Arvind Reddy Desireddy**  
+
+
  Method-1
-
-
-
-Installing Ecllipse IDE
-
-1.	To Install program on your device, you need to have Ecllipse IDE installed.
-2.	 download Ecllipse IDE through this link ( “https://www.eclipse.org/downloads/ “).
-3.	Once Ecllipse IDE is installed, create a MAVEN project, by clicking on file --> new --> project --> MAVEN project.
-4.	While creating MAVEN project, we need to give groupID and artifactId, then add dependencies in pom.xml file.
-5.	Go to Src --> main --> java --> GroupId --> artifactID --> X.java.
-6.	Download the TREC Complex Answer Retrieval \test200\ dataset from http://trec-car.
-cs.unh.edu/ and unpack
-7.	Add path to TREC dataset in X.java.
-8. Add all the required jar files in the main project.
-
-
-Compiling and Running 
-
-1.	Click on Run, to compile and Run the program.
-2.	{ Paragraph ID : Contents } , Results are displayed from top to bottom.
-
-
-
-Method-2
-
 JDK Version used - 12.0.2
 
 Apache-maven version - 3.6.2
@@ -53,25 +30,13 @@ Instructions to install Maven in Terminal:
 
 *sudo apt install maven*
 
+Before compiling keep the App.java,score.java,paragraph.cbor file in the main directory where pom.xml is present .
 
 Program gets complied by  
 *mvn clean compile assembly:single*
 
-To run the Program,  
-*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar App*   
-(change the path files in the App.java based on the location of the dataset)
-The above command creates indexes and gives out queries according to BM25 scoring function    
+To run the Program(App.java) make sure it`s in current pom.xml directory,  
+java -Xmx50g -cp **ADD PATH**/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar App.java **ADD PATH**/fold-0-train.pages.cbor-paragraphs.cbor **ADD PATH**/files/
 
-*java -Xmx50g -cp target/ProgrammingAssignment1-0.0.1-SNAPSHOT-jar-with-dependencies.jar score*  
-(change the path files in the score.java based on the location of the dataset)                                             
-The above command gives out queries according to custom scoring function
-
-
-
-
-
-
-
-
-
-
+To run the Program(score.java) make sure it`s in current pom.xml directory,  
+java -Xmx50g -cp **ADD PATH**/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar score.java **ADD PATH**/fold-0-train.pages.cbor-paragraphs.cbor **ADD PATH**/files/
