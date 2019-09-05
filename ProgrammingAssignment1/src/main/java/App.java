@@ -130,7 +130,7 @@ public class App
             
                 final Document doc = searcher.doc(score.doc);
                 System.out.println(doc.getField("id").stringValue() + "-" + doc.getField("text").stringValue());
-            }System.out.println("------------------------------------------------------------");
+            }System.out.println("-------------------------------------------------------------");
 
         }
 
