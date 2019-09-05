@@ -39,4 +39,4 @@ To run the Program(App.java) make sure it`s in current pom.xml directory,
 *java -Xmx50g -cp **ADD PATH**/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar App.java **ADD PATH**/fold-0-train.pages.cbor-paragraphs.cbor **ADD PATH**/files/*
 
 To run the Program(score.java) make sure it`s in current pom.xml directory,  
-**java -Xmx50g -cp **ADD PATH**/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar score.java **ADD PATH**/fold-0-train.pages.cbor-paragraphs.cbor **ADD PATH**/files/
+*java -Xmx50g -cp **ADD PATH**/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar score.java **ADD PATH**/fold-0-train.pages.cbor-paragraphs.cbor **ADD PATH**/files/*
