@@ -33,7 +33,8 @@ Program gets complied by
 
 To run the Program (Question 1) assign2.java make sure it is in current pom.xml directory,
 
-***java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign2.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/***  
+***java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign2.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/*** 
+
 To run the Program (Question 3, 4, 5) Eval.java  make sure it is in current pom.xml directory,  
 
 ***java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar eval.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/***
