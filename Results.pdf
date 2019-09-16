@@ -6,7 +6,6 @@
 
 
 
-
 Part 1
 
 
@@ -18,19 +17,16 @@ Part 1
 
 
 Part 2
-
-
-
-
-
-
-
+Custom Precision@R
+all     0.5095
+Custom MAP
+all     0.5257
+Custom NDCG@20
+all     0.6740
 
 
 
 Part3
-
-
 
 Precision@R
 ======================
@@ -43,9 +39,6 @@ Prec@R is:0.5945725176983119
 
 
 
-
-
-
 Part 4
 MAP
 ======================
@@ -53,8 +46,6 @@ Default Score:
 MAP is:0.6165717206846371
 Custom:
 MAP is:0.6175591296515894
-
-
 
 
 
