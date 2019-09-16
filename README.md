@@ -15,11 +15,11 @@ created a *default.txt* file to store the output
 
 Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 
-***wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz*
+***wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz*  
 *tar xf test200.v2.0.tar.xz***
 
 
-Directory://test200/test200-train/train.pages.cbor-article.qrels
+Directory: //test200/test200-train/train.pages.cbor-article.qrels  
 
 For this program to work on Linux, Maven has to be installed  
 Instructions to install Maven in Terminal:  
@@ -43,17 +43,12 @@ To run the Program (Question 3, 4, 5) Eval.java  make sure it is in current pom.
 Download evaluation program trec eval 
 
 ***http://trec.nist.gov/trec_eval/***
-Directory://test200/test200-train/train.pages.cbor-article.qrels
-Rprec
+Directory://test200/test200-train/train.pages.cbor-article.qrels  
+Rprec  
+***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***  
 
-***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***
+MAP  
+***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***  
 
-MAP
-
-***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***
-
-
-
-NDCG20
-
-*** ./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***
+NDCG20  
+***./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***
