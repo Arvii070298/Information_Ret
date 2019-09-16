@@ -1,19 +1,17 @@
 Team 07
 
 Medhini Shankar Narayan
-
 Akhila Bezawada
-
 Sai Arvind Reddy Desireddy
 
 
 JDK Version used - 12.0.2
 Apache-maven version - 3.6.2
 
-cd team7/ProgrammingAssignment2/
+ team7/ProgrammingAssignment2/
 This program has 2 java files (Eval.java and assign2.java) and 1 pom.xml file in total
 
-created a default.txt file to store the output
+created a *default.txt* file to store the output
 
 Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 
@@ -21,7 +19,7 @@ Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 *tar xf test200.v2.0.tar.xz***
 
 
-Diectory://test200/test200-train/train.pages.cbor-article.qrels
+Directory://test200/test200-train/train.pages.cbor-article.qrels
 
 For this program to work on Linux, Maven has to be installed
 Instructions to install Maven in Terminal:
@@ -43,17 +41,18 @@ To run the Program(Eval.java) make sure it`s in current pom.xml directory,
 
 Question 2
 Download evaluation program trec eval 
-http://trec.nist.gov/trec_eval/
+
+***http://trec.nist.gov/trec_eval/***
 Directory://test200/test200-train/train.pages.cbor-article.qrels
 Rprec
 
-./trec_eval -m Rprec /home/csg/Unh_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
+***./trec_eval -m Rprec /home/csg/Unh_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c***
 
 MAP
 
-./trec_eval -m map /home/csg/UNH_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
+***./trec_eval -m map /home/csg/UNH_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c*******
 
 
 
 NDCG20
- ./trec_eval -m ndcg_cut.20 /home/csg/sd1253/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
+*** ./trec_eval -m ndcg_cut.20 /home/csg/sd1253/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c***
