@@ -26,20 +26,20 @@ Instructions to install Maven in Terminal:
 
 ***sudo apt install maven***
 
-Before compiling keep the Eval.java,assign2.java,paragraph.cbor file in the main directory where pom.xml is present .
+Before compiling keep the Eval.java, assign2.java, paragraph.cbor file in the main directory where pom.xml is present.  
 Program gets complied by
 
 ***mvn clean compile assembly:single***
 
-To run the Program(assign2.java) make sure it`s in current pom.xml directory,
+To run the Program (Question 1) assign2.java make sure it is in current pom.xml directory,
 
 ***java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign2.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/***
-To run the Program(Eval.java) make sure it`s in current pom.xml directory,
+To run the Program (Question 3, 4, 5) Eval.java  make sure it is in current pom.xml directory,
 
 ***java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar eval.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/***
 
 
-Question 2
+ For Question 2
 Download evaluation program trec eval 
 
 ***http://trec.nist.gov/trec_eval/***
