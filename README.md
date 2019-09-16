@@ -1,15 +1,15 @@
 Team 07
 
-Medhini Shankar Narayan
-Akhila Bezawada
-Sai Arvind Reddy Desireddy
+Medhini Shankar Narayan  
+Akhila Bezawada  
+Sai Arvind Reddy Desireddy  
 
 
-JDK Version used - 12.0.2
-Apache-maven version - 3.6.2
+JDK Version used - 12.0.2  
+Apache-maven version - 3.6.2  
 
- team7/ProgrammingAssignment2/
-This program has 2 java files (Eval.java and assign2.java) and 1 pom.xml file in total
+ team7/ProgrammingAssignment2/  
+This program has 2 java files (Eval.java and assign2.java) and 1 pom.xml file in total  
 
 created a *default.txt* file to store the output
 
@@ -21,8 +21,8 @@ Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 
 Directory://test200/test200-train/train.pages.cbor-article.qrels
 
-For this program to work on Linux, Maven has to be installed
-Instructions to install Maven in Terminal:
+For this program to work on Linux, Maven has to be installed  
+Instructions to install Maven in Terminal:  
 
 ***sudo apt install maven***
 
