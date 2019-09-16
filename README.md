@@ -43,8 +43,8 @@ To run the Program (Question 3, 4, 5) Eval.java  make sure it is in current pom.
  For Question 2
 Download evaluation program trec eval 
 
-***http://trec.nist.gov/trec_eval/***
-Directory://test200/test200-train/train.pages.cbor-article.qrels  
+***http://trec.nist.gov/trec_eval/***  
+Directory: //test200/test200-train/train.pages.cbor-article.qrels  
 Rprec  
 ***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/default.txt -q -c***  
 
