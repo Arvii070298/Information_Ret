@@ -33,3 +33,21 @@ To run the Program(assign2.java) make sure it`s in current pom.xml directory,
 java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign2.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/
 To run the Program(Eval.java) make sure it`s in current pom.xml directory,
 java -Xmx50g -cp ADD PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar eval.java ADD PATH/fold-0-train.pages.cbor-paragraphs.cbor ADD PATH/files/
+
+
+Question 2
+Download evaluation program trec eval 
+http://trec.nist.gov/trec_eval/
+Directory://test200/test200-train/train.pages.cbor-article.qrels
+Rprec
+
+./trec_eval -m Rprec /home/csg/Unh_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
+
+MAP
+
+./trec_eval -m map /home/csg/UNH_User_ID/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
+
+
+
+NDCG20
+ ./trec_eval -m ndcg_cut.20 /home/csg/sd1253/assign2/test200/test200-train/train.pages.cbor-article.qrels /home/csg/sd1253/assign2/default.txt -q -c
