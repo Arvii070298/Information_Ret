@@ -18,6 +18,9 @@ import java.util.Scanner;
 public class Eval {
 	private Scanner input;
     private String outlineFilePath;
+  // private static String file="C:/Users/Sai Arvind/Desktop/new/assign01/default.txt";
+   //private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
+    private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
     public static Map<String, Map<String, Integer>> out_data;
     private static Map<String, Double> mean_avg_precison = new HashMap<String, Double>();
@@ -28,7 +31,7 @@ public class Eval {
 	public static void main (String[] args) throws FileNotFoundException {
 		
 		final  String qrelsFilePath=args[0];
-		final String file=args[1];
+	final String file=args[1];
 		Map<String, Map<String, Integer>> map1 = readRunFile(qrelsFilePath);
 		
 		Eval(map1);
@@ -61,8 +64,10 @@ public class Eval {
             String queryId = query.getKey();
             Map<String,Integer> docIdRank= query.getValue();
             int query_count = 0;
+            double x;
             int ranking_rel_count = 0;
             double avg_precision = 0.0;	
+            x=4.5;
             for(Map.Entry<String,Integer> document: docIdRank.entrySet()){
                 query_count = query_count + 1;
                 if(getQrelRelevancy(queryId, document.getKey()) == 1){
@@ -73,12 +78,14 @@ public class Eval {
             int    rel_docs_count=0;
             if (out_data.containsKey(queryId)) {
                 Map<String, Integer> temp = out_data.get(queryId);
-                rel_docs_count=  (int) (temp.size()*4.5);}
+                rel_docs_count=  (int) (temp.size());
+                x=x*rel_docs_count;
+            }
             
-                if(rel_docs_count == 0){ //if the tnt true relevant docs are 0
+                if(x == 0){ //if the tnt true relevant docs are 0
                     avg_precision = 0.0;
                 }else{
-                    avg_precision = avg_precision/rel_docs_count;
+                    avg_precision = avg_precision/x;
                 }
                 mean_avg_precison.put(queryId, avg_precision);
         }}
