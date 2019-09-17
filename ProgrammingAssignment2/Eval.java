@@ -265,7 +265,7 @@ public class Eval {
 					 Map<String, Integer> temp = Query.getValue();
 					 Map<String, Integer> temp1 = Query1.getValue(); 
 					 
-					 for(Map.Entry<String,Integer> Q : temp1.entrySet()) {
+					 for(Map.Entry<String,Integer> Q : temp.entrySet()) {
 						 cnt=0;
 						 for(Map.Entry<String,Integer> Q1 : temp1.entrySet()) {
 							 cnt++;
