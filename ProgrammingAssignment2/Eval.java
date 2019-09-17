@@ -161,13 +161,13 @@ public class Eval {
 		    double IDCG=DCG;
 
 		    for (Map.Entry<String, Integer> row : docIDRank.entrySet()) {
-
+//maps in Java implement Map interface
 		        if ((getQrelRelevancy(Query.getKey(), row.getKey())) == 1) {
 		            grd.add(1);
 		        }
 		        else grd.add(0);
 
-		        Collections.sort(grd, Collections.reverseOrder());
+		        Collections.sort(grd, Collections.reverseOrder());//Collections.sort method is sorting the elements of grd in descending order
 
 		        if (cnt <= tnt) {
 		            IDCG += (Math.pow(2, grd.get(cnt-1))) / (Math.log(cnt + 1));
