@@ -14,18 +14,18 @@ Text files are being created for the respective functions
 Part 2
 
 BM25:
-Rprecis0.5922715781870711
-MAP is:0.6165717206846371
-NDCG20 is:0.6712607859648821
+Rprecis0.5966
+MAP is:0.6016
+NDCG20 is:0.7696
 
 Customscore :
 Rprecis0.5922715781870711
-MAP is:0.6165717206846371
-NDCG20 is:0.6659549132955013
+MAP is:0.5095
+NDCG20 is:0.6740
 
 
 Custom Precision@R
-all     0.5095
+all     0.5922715781870711
 Custom MAP
 all     0.5257
 Custom NDCG@20
@@ -41,7 +41,7 @@ Qrel file: train.pages.cbor-article.qrels
 Default: 
 Prec@R is:0.5922715781870711
 Custom
-Prec@R is:0.5945725176983119
+Prec@R is:0.5922715781870711
 
 
 
@@ -52,14 +52,14 @@ MAP
 Default Score:
 MAP is:0.6165717206846371
 Custom:
-MAP is:0.6175591296515894
+MAP is:0.6909452920767625
 
 
 
 Part 5
 
 The eval score we calculate is very similar to the one calculated by trec_eval, but not exactly the same.
-With the default scoring algorithm, we calculate a nDCG@20 score of NDCG20 is:0.6712607859648821,
+With the default scoring algorithm, we calculate a nDCG@20 score of NDCG20 is::0.6712607859648821,
 while trec_eval reports 0.7716. For our custom scoring function,
 we calculate NDCG20 is:0.6645272023724066, while trec_eval calculates 0.6199.
 As we are using logarithms base 2, while we implement in class determines the denominator as log2(c+1), results in log2(2)=1, results in denominator will be one larger for all calculations.
