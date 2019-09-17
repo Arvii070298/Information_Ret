@@ -67,7 +67,7 @@ public class score {
                 String q = queryId + " " + "Q0" + " " + doc.getField("paragraphid").stringValue() + " " + rank + " " + score.score + " " + "team7" + "-" + "Custom_score_function";
                 out.add(q);
                 rank += 1;
-            			}
+            }
             }
         return out;
     }
