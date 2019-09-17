@@ -16,8 +16,6 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.similarities.BM25Similarity;
-import org.apache.lucene.search.similarities.BasicStats;
-import org.apache.lucene.search.similarities.SimilarityBase;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
@@ -34,13 +32,11 @@ import java.util.List;
 import java.util.Map;
 
 public class assign2 {
-   private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+    private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
     private static final String DEFAULT_SCORE_FILE = "default.txt";
-    private static final String CUSTOM_SCORE_FILE = "custom.txt";
-
     private  final String file1=null;
     private static final String INDEX_DIR = "index";
-    private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+     private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
     private static HashMap<String, String> queries = null;
 
@@ -67,13 +63,12 @@ public class assign2 {
                 String q = queryId + " " + "Q0" + " " + doc.getField("paragraphid").stringValue() + " " + rank + " " + score.score + " " + "team7" + "-" + "value";
                 out.add(q);
                 rank += 1;
-            			}
-            }
+            			}  }
         return out;
     }
 
     public static void main(String[] args) throws IOException {
-    	final String File=args[0];
+    	//final String File=args[0];
     	queries = new HashMap<String, String>();
 
         File file = new File(File);
@@ -85,48 +80,28 @@ public class assign2 {
             queries.put(queryId, query);
     	
         }
-        int counter=0;
+   
         
-        buildIndex(args[1]);
-        if(counter==0) {
+        buildIndex(PARAGRAPH_FILE);
+        
         IndexSearcher searcher = setupIndexSearcher();
         searcher.setSimilarity(new BM25Similarity());
         List<String> content = value(searcher);
+       
+        
+        
         FileWriter writer = new FileWriter(DEFAULT_SCORE_FILE);
         for(String output: content) {
             writer.write(output + System.lineSeparator());
-        }System.out.println("Default.txt file created");
-        counter++;
         }
-        if(counter==1)
-        {
-        	IndexSearcher searcher = setupIndexSearcher();
-        	 searcher.setSimilarity(new SimilarityBase() {
-             	@Override
-             	public String toString() {
-             	return "similarity base";
-             	}
+        writer.close();
+        
+       System.out.println("default.txt created");
 
-             	@Override
-             	protected float score(BasicStats stats, float freq, float docLen) {
-             	return freq;
-             	}
-             	});
-        	 List<String> content = value(searcher);
-             FileWriter writer = new FileWriter(CUSTOM_SCORE_FILE);
-             for(String output: content) {
-                 writer.write(output + System.lineSeparator());
-             }System.out.println("custom.txt file created");
-             writer.close();
-        	
-        }
-        
-        
-       
-        
-       
     
 }
+    
+    
     
     
     
