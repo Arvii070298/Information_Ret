@@ -8,9 +8,22 @@
 
 
 Part 1
+
 Text files are being created for the respective functions
 
 Part 2
+
+BM25:
+Rprecis0.5922715781870711
+MAP is:0.6165717206846371
+NDCG20 is:0.6712607859648821
+
+Customscore :
+Rprecis0.5922715781870711
+MAP is:0.6165717206846371
+NDCG20 is:0.6659549132955013
+
+
 Custom Precision@R
 all     0.5095
 Custom MAP
