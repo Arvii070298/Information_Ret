@@ -18,8 +18,8 @@ import java.util.Scanner;
 public class Eval {
 	private Scanner input;
     private String outlineFilePath;
-  // private static String file="C:/Users/Sai Arvind/Desktop/new/assign01/default.txt";
-   //private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
+  // private static String file="C:/Users/Sai Arvind/Desktop/new/assign01/custom.txt";
+//  private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
     private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
     public static Map<String, Map<String, Integer>> out_data;
@@ -30,8 +30,8 @@ public class Eval {
 	
 	public static void main (String[] args) throws FileNotFoundException {
 		
-		final  String qrelsFilePath=args[0];
-	final String file=args[1];
+	final  String qrelsFilePath=args[0];
+final String file=args[1];
 		Map<String, Map<String, Integer>> map1 = readRunFile(qrelsFilePath);
 		
 		Eval(map1);
@@ -67,7 +67,7 @@ public class Eval {
             double x;
             int ranking_rel_count = 0;
             double avg_precision = 0.0;	
-            x=4.5;
+            x=5;
             for(Map.Entry<String,Integer> document: docIdRank.entrySet()){
                 query_count = query_count + 1;
                 if(getQrelRelevancy(queryId, document.getKey()) == 1){
@@ -161,13 +161,13 @@ public class Eval {
 		    double IDCG=DCG;
 
 		    for (Map.Entry<String, Integer> row : docIDRank.entrySet()) {
-//maps in Java implement Map interface
+
 		        if ((getQrelRelevancy(Query.getKey(), row.getKey())) == 1) {
 		            grd.add(1);
 		        }
 		        else grd.add(0);
 
-		        Collections.sort(grd, Collections.reverseOrder());//Collections.sort method is sorting the elements of grd in descending order
+		        Collections.sort(grd, Collections.reverseOrder());
 
 		        if (cnt <= tnt) {
 		            IDCG += (Math.pow(2, grd.get(cnt-1))) / (Math.log(cnt + 1));
@@ -265,9 +265,9 @@ public class Eval {
 					 Map<String, Integer> temp = Query.getValue();
 					 Map<String, Integer> temp1 = Query1.getValue(); 
 					 
-					 for(Map.Entry<String,Integer> Q : temp.entrySet()) {
+					 for(Map.Entry<String,Integer> Q : temp1.entrySet()) {
 						 cnt=0;
-						 for(Map.Entry<String,Integer> Q1 : temp1.entrySet()) {
+						 for(Map.Entry<String,Integer> Q1 : temp.entrySet()) {
 							 cnt++;
 							 if(Q.getKey().contains(Q1.getKey())) {
 								 relevant++;
