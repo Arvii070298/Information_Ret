@@ -130,8 +130,6 @@ public class assign2 {
     
     
     
-    
-    
     public static BooleanQuery toQuery(String queryStr) throws IOException {
     	StandardAnalyzer analyzer = new StandardAnalyzer();
         ArrayList<String> tokens = new ArrayList<String>(128);
