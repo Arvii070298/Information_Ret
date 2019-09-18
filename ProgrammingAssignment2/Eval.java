@@ -16,8 +16,8 @@ import java.util.Scanner;
 
 
 public class Eval {
-	private Scanner input;
-    private String outlineFilePath;
+	private Scanner input; // scanning input
+    private String outlineFilePath; 
 
     private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
@@ -32,8 +32,10 @@ public class Eval {
 	public static void main (String[] args) throws FileNotFoundException {
 		
 	final  String qrelsFilePath=args[0];
+
 final String file=args[1];
-		Map<String, Map<String, Integer>> map1 = readRunFile(qrelsFilePath);
+	
+		Map<String, Map<String, Integer>> map1 = readRunFile(qrelsFilePath); // reading the file
 		
 		Eval(map1);
 		
@@ -41,12 +43,15 @@ final String file=args[1];
 		 out(map);
 		 
 		System.out.println("Rprecis"+(1-Prec())); 
-		System.out.println("MAP is:"+calculateMeanAvgPrecision());
+		// calculate Precision @ R
+		System.out.println("MAP is:"+calculateMeanAvgPrecision()); 
+		// calculating MAP
 		 System.out.println("NDCG20 is:"+	calNDCG20());
-		
+		//calculate NDCG@20
 		
 		
 	}
+	//creating a map
 		
 	private static void out(Map<String, Map<String, Integer>> map) {
 		qrel_data=map;
@@ -59,10 +64,14 @@ final String file=args[1];
 	}
 	
 	public static void avgPrec() {
+	    // key, value pair
 		for (Map.Entry<String, Map<String,Integer>> query : qrel_data.entrySet()){
+		    // qrel data entry
 			
-
+// Accessing the contents of Map through Keys 
             String queryId = query.getKey();
+            
+            // getting values from map
             Map<String,Integer> docIdRank= query.getValue();
             int query_count = 0;
             double x;
@@ -71,12 +80,13 @@ final String file=args[1];
             x=5;
             for(Map.Entry<String,Integer> document: docIdRank.entrySet()){
                 query_count = query_count + 1;
-                if(getQrelRelevancy(queryId, document.getKey()) == 1){
-                    ranking_rel_count = ranking_rel_count + 1;
-                    avg_precision = avg_precision + (ranking_rel_count/(double) query_count);
+                if(getQrelRelevancy(queryId, document.getKey()) == 1)
+                {
+                    ranking_rel_count = ranking_rel_count + 1; // increment rank_rel_count
+                    avg_precision = avg_precision + (ranking_rel_count/(double) query_count);//  calculate avg_precision 
                 }
                 }
-            int    rel_docs_count=0;
+            int    rel_docs_count=0; 
             if (out_data.containsKey(queryId)) {
                 Map<String, Integer> temp = out_data.get(queryId);
                 rel_docs_count=  (int) (temp.size());
@@ -84,11 +94,11 @@ final String file=args[1];
             }
             
                 if(x == 0){ //if the tnt true relevant docs are 0
-                    avg_precision = 0.0;
+                    avg_precision = 0.0;// if no relavent documents prec=0
                 }else{
                     avg_precision = avg_precision/x;
                 }
-                mean_avg_precison.put(queryId, avg_precision);
+                mean_avg_precison.put(queryId, avg_precision); //o/p  
         }}
 	
 	 public static double calculateMeanAvgPrecision()
@@ -103,7 +113,7 @@ final String file=args[1];
 	        int tnt_size = mean_avg_precison.size();
 	        //Take the mean of the APs of the queries
 	        if(tnt_size != 0){
-	            MAP = tntAP/tnt_size;
+	            MAP = tntAP/tnt_size; // Mean Avg Precision = Average precision/ total size
 	        }
 	        return MAP;
 
@@ -133,6 +143,7 @@ final String file=args[1];
 		private static Double calDCG20(Map.Entry<String, Map<String, Integer>> Query) {
 		    double DCG = 0.0;
 		    int cnt = 1;
+		    // get values
 		    Map<String, Integer> docIDRank = Query.getValue();
 		    
 		    ArrayList<Integer> grd = new ArrayList();
@@ -179,6 +190,7 @@ final String file=args[1];
 		        else grd.add(0);
 		        
 		        // Collections.sort method is sorting the elements of grd in descending order.
+// highest grade at top and lowest garde at bottom
 
 		        Collections.sort(grd, Collections.reverseOrder());
 
@@ -253,11 +265,13 @@ final String file=args[1];
 	    }
 		
 		
-	 private static int getQrelRelevancy(String query_id, String doc_id){
-	        if(qrel_data.containsKey(query_id)){
-	            Map<String,Integer> t = qrel_data.get(query_id);
-	            if(t.containsKey(doc_id)){
-	                return t.get(doc_id);
+	 private static int getQrelRelevancy(String query_id, String doc_id)
+	 {
+	        if(qrel_data.containsKey(query_id)) //if statement whether query_id is present in qrel_dtat
+	        {
+	            Map<String,Integer> t = qrel_data.get(query_id); // if yes //creating obj t // get query_if
+	            if(t.containsKey(doc_id)){    // if contains doc_id
+	                return t.get(doc_id);     // return value
 	            }
 	            return -1;
 	        }
