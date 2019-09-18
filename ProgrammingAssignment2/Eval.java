@@ -18,12 +18,13 @@ import java.util.Scanner;
 public class Eval {
 	private Scanner input;
     private String outlineFilePath;
-  // private static String file="C:/Users/Sai Arvind/Desktop/new/assign01/custom.txt";
-//  private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
+
     private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
     public static Map<String, Map<String, Integer>> out_data;
     private static Map<String, Double> mean_avg_precison = new HashMap<String, Double>();
+    
+// since NDCG@ 20 
 
     private final static int tnt = 20;
 	
@@ -112,6 +113,8 @@ final String file=args[1];
 	 public static Double calNDCG20() {
 		    double NDCG = 0.0;
 		    int cnt = 1;
+//out_data.entrySet() : used to create a set out of the same elements contained in the hash map/
+//returns a set view of the hash map.
 
 		    for (Map.Entry<String, Map<String, Integer>> Query : out_data.entrySet()) {
 
@@ -159,13 +162,18 @@ final String file=args[1];
 
 		    ArrayList<Integer> grd = new ArrayList();
 		    double IDCG=DCG;
+		    //we cannot iterate a Map directly using iterators, because Map are not Collection
 
 		    for (Map.Entry<String, Integer> row : docIDRank.entrySet()) {
+		        
+		        //maps in Java implement Map interfacemaps in Java implement Map interface
 
 		        if ((getQrelRelevancy(Query.getKey(), row.getKey())) == 1) {
 		            grd.add(1);
 		        }
 		        else grd.add(0);
+		        
+		        // Collections.sort method is sorting the elements of grd in descending order.
 
 		        Collections.sort(grd, Collections.reverseOrder());
 
@@ -183,6 +191,8 @@ final String file=args[1];
 
 	public static	Map<String, Map<String, Integer>> readRunFile(String filename)
 	    {
+	        //In the given code Key value is "String", and Value is Map<String, Integer>
+	        
 	        Map<String, Map<String, Integer>> map = new LinkedHashMap<String, Map<String, Integer>>();
 
 	        File fp = new File(filename);
