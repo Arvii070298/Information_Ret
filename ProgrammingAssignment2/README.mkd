@@ -30,7 +30,7 @@ Program gets complied by
 
 To run the Program (Question 1) assign2.java make sure it is in current pom.xml directory,  
 
-*java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign.java PATH/train.pages.cbor-outlines.cbor
+*java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar assign2.java PATH/train.pages.cbor-outlines.cbor
 PATH/train.pages.cbor-paragraphs.cbor*  
 
 
