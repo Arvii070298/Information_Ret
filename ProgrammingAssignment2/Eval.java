@@ -117,6 +117,8 @@ final String file=args[1];
 //returns a set view of the hash map.
 
 		    for (Map.Entry<String, Map<String, Integer>> Query : out_data.entrySet()) {
+		        
+		        //NDCG = DCG@@20 / IDCG@20
 
 		        NDCG += calDCG20(Query) / calIDCG20(Query);
 		        cnt++;
@@ -135,6 +137,7 @@ final String file=args[1];
 		    
 		    ArrayList<Integer> grd = new ArrayList();
 		    
+		    // it dynamically increses size 
 
 		    for (Map.Entry<String, Integer> row : docIDRank.entrySet())
 		    {
@@ -144,6 +147,8 @@ final String file=args[1];
 		        } else grd.add(0);
 
 		        if (cnt <= tnt) {
+		            // calculate DCG = 2^grade-1/(log (c+1).
+			//logarithm BASE 2 is applied
 		            DCG += (Math.pow(2, grd.get(cnt-1))) / (Math.log(cnt + 1));
 		            cnt++;
 		        } else break;
@@ -153,10 +158,10 @@ final String file=args[1];
 		}
 
 		private static Double calIDCG20(Map.Entry<String, Map<String, Integer>> Query) {
+
 // by using formulae for IDCG That is IDCG = 2^grade-1/(log (c+1).
-			//logarithm BASE 2 is applied
-			
-		    double DCG = 11.0;
+					 double DCG = 11.0;
+			 ////logarithm BASE 2 is applied
 		    int cnt = 1;
 		    Map<String, Integer> docIDRank = Query.getValue();
 
@@ -178,6 +183,8 @@ final String file=args[1];
 		        Collections.sort(grd, Collections.reverseOrder());
 
 		        if (cnt <= tnt) {
+		          //calculate   2^grade-1/(log (c+1).
+			//logarithm BASE 2 is applied
 		            IDCG += (Math.pow(2, grd.get(cnt-1))) / (Math.log(cnt + 1));
 		            cnt++;
 		        } else break;
@@ -201,7 +208,9 @@ final String file=args[1];
 
 
 	        try {
+	            //filereader
 	            reader = new FileReader(fp);
+	            //bufferreader
 	            buffer = new BufferedReader(reader);
 
 	        } catch (IOException e) {
