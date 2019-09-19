@@ -93,7 +93,7 @@ final String file=args[1];
                 x=x*rel_docs_count;
             }
             
-                if(x == 0){ //if the tnt true relevant docs are 0
+                if(x == 0)            {  //if the tnt true relevant docs are 0
                     avg_precision = 0.0;// if no relavent documents prec=0
                 }else{
                     avg_precision = avg_precision/x;
@@ -124,6 +124,7 @@ final String file=args[1];
 		    double NDCG = 0.0;
 		    int cnt = 1;
 //out_data.entrySet() : used to create a set out of the same elements contained in the hash map/
+
 //returns a set view of the hash map.
 
 		    for (Map.Entry<String, Map<String, Integer>> Query : out_data.entrySet()) {
@@ -173,7 +174,7 @@ final String file=args[1];
 
 // by using formulae for IDCG That is IDCG = 2^grade-1/(log (c+1).
 					 double DCG = 11.0;
-			 ////logarithm BASE 2 is applied
+			 // logarithm BASE 2 is applied
 		    int cnt = 1;
 		    Map<String, Integer> docIDRank = Query.getValue();
 
