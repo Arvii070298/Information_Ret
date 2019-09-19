@@ -171,11 +171,11 @@ final String file=args[1];
 		}
 
 		private static Double calIDCG20(Map.Entry<String, Map<String, Integer>> Query) {
-
+                         int cnt = 1;
 // by using formulae for IDCG That is IDCG = 2^grade-1/(log (c+1).
 					 double DCG = 11.0;
 			 // logarithm BASE 2 is applied
-		    int cnt = 1;
+		    
 		    Map<String, Integer> docIDRank = Query.getValue();
 
 		    ArrayList<Integer> grd = new ArrayList();
