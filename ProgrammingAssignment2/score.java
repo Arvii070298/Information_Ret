@@ -134,6 +134,7 @@ public class score {
         }
         tokenStream.end();
         tokenStream.close();
+        /// boolean Query Builder
         BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
         for (String token : tokens) {
             booleanQuery.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
