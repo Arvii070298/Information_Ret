@@ -131,6 +131,7 @@ final String file=args[1];
 		        //NDCG = DCG@@20 / IDCG@20
 
 		        NDCG += calDCG20(Query) / calIDCG20(Query);
+		        // increment counter
 		        cnt++;
 		    }
 
@@ -198,7 +199,7 @@ final String file=args[1];
 		          //calculate   2^grade-1/(log (c+1).
 			//logarithm BASE 2 is applied
 		            IDCG += (Math.pow(2, grd.get(cnt-1))) / (Math.log(cnt + 1));
-		            cnt++;
+		            cnt++; // increment counter
 		        } else break;
 		    }
 		    return IDCG;
