@@ -51,7 +51,7 @@ final String file=args[1];
 		
 		
 	}
-	//creating a map
+	//creating a map. key is linked to specific value
 		
 	private static void out(Map<String, Map<String, Integer>> map) {
 		qrel_data=map;
