@@ -108,7 +108,7 @@ public class assign2 {
     
     public static BooleanQuery toQuery(String queryStr) throws IOException {
     	StandardAnalyzer analyzer = new StandardAnalyzer();
-        ArrayList<String> tokens = new ArrayList<String>(128);
+        ArrayList<String> tokens = new ArrayList<String>();
         TokenStream tokenStream = analyzer.tokenStream("text", new StringReader(queryStr));
         tokenStream.reset();
         tokens.clear();
