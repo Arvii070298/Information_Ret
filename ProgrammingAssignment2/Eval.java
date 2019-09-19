@@ -269,7 +269,7 @@ final String file=args[1];
 		
 	 private static int getQrelRelevancy(String query_id, String doc_id)
 	 {
-	        if(qrel_data.containsKey(query_id)) //if statement whether query_id is present in qrel_dtat
+	        if(qrel_data.containsKey(query_id)) //if statement whether query_id is present in qrel_data
 	        {
 	            Map<String,Integer> t = qrel_data.get(query_id); // if yes //creating obj t // get query_if
 	            if(t.containsKey(doc_id)){    // if contains doc_id
