@@ -32,11 +32,11 @@ import java.util.List;
 import java.util.Map;
 
 public class assign2 {
-    private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+   // private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
     private static final String DEFAULT_SCORE_FILE = "default.txt";
     private  final String file1=null;
     private static final String INDEX_DIR = "index";
-     private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+  //   private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
     private static HashMap<String, String> queries = null;
 
@@ -68,12 +68,12 @@ public class assign2 {
     }
 
     public static void main(String[] args) throws IOException {
-    	//final String File=args[0];
+    	final String File=args[0];
+	final String PARAGRAPH_FILE=args[1];
     	queries = new HashMap<String, String>();
 
         File file = new File(File);
-     
-
+       
         final FileInputStream fileInputStream = new FileInputStream(file);
         for(Data.Page p: DeserializeData.iterableAnnotations(fileInputStream)) {
             String queryId = p.getPageId();
@@ -123,8 +123,6 @@ public class assign2 {
             booleanQuery.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
         }
         return booleanQuery.build();
-        
-        /* Using IndexSearcher Lucene index is searched*/
     }
     public static IndexSearcher setupIndexSearcher() throws IOException {
         Path path = FileSystems.getDefault().getPath(INDEX_DIR, "paragraph.lucene");
@@ -147,7 +145,6 @@ public class assign2 {
     	String PARAGRAPH_FILE=args;
     	IndexWriter writer = createWriter();
         writer.deleteAll();  // ensure cleaned
-
 
         List<Document> documents = new ArrayList<Document>();
         final FileInputStream fileInputStream2 = new FileInputStream(new File(PARAGRAPH_FILE));
