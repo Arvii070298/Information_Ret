@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class spearman {
-private static String file="C:/Users/Sai Arvind/Desktop/new/assign01/default.txt";
-private static String file1="C:/Users/Sai Arvind/Desktop/new/assign01/anc.txt";
+private static String file="C:PATH/assign01/default.txt";
+private static String file1="C:PATHassign01/anc.txt";
   //private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
     private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
