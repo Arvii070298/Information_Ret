@@ -84,12 +84,12 @@ private static String file1="C:PATHassign01/anc.txt";
 
         if(m.containsKey(queryID))
         {
-            Map<String,Integer> insideHolder = m.get(queryID);
+            Map<String,Integer> inHolder = m.get(queryID);
 
-            if(insideHolder.containsKey(paraID))
+            if(inHolder.containsKey(paraID))
             {
                     //Return the Dock rank.
-                    return insideHolder.get(paraID);
+                    return inHolder.get(paraID);
             }
 
         }
@@ -104,42 +104,42 @@ private static String file1="C:PATHassign01/anc.txt";
 
     public static void main (String[] args) throws FileNotFoundException {
     double Correlation = 0.0;
-        int nQuery=0;
-        Map<String, Map<String, Integer>> LuceneDefault = readRunFile(file);
-        Map<String, Map<String, Integer>> customTFIDF = readRunFile(file1);
+        int nQry=0;
+        Map<String, Map<String, Integer>> LucDft = readRunFile(file);
+        Map<String, Map<String, Integer>> cstTfIdf = readRunFile(file1);
        
-        for (Map.Entry<String, Map<String, Integer>> Query : LuceneDefault.entrySet())
+        for (Map.Entry<String, Map<String, Integer>> Query : LucDft.entrySet())
         {
 
-            nQuery++;
+            nQry++;
 
             //Summation of d^2 for one Query
-            int dsquare=0;
+            int dsqr=0;
 
             //Number of pairs for one Query
             int n = 0;
 
             //Started as the current Document ID for the Default Lucene search.
-            int currentDocRank = 0;
+            int currRankDoc = 0;
 
             for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
             {
                     int diff=0;
 
-                    currentDocRank++;
+                    currRankDoc++;
                    
-                    Integer docRank = docRanking(customTFIDF,Query.getKey(),p.getKey());
+                    Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
 
                     if(docRank!=0)
                     {
                         n++;
-                        diff = currentDocRank - docRank;
-                        dsquare += Math.pow(diff,2);
+                        diff = currRankDoc - docRank;
+                        dsqr += Math.pow(diff,2);
                     }
 
             }
 
-            double num = 6*dsquare;
+            double num = 6*dsqr;
             double denom = n *((Math.pow(n,2))-1);
 
             if(denom == 0)
@@ -152,7 +152,7 @@ private static String file1="C:PATHassign01/anc.txt";
             Correlation+= result;
         }
 
-      double res=  Correlation/nQuery;
+      double res=  Correlation/nQry;
       System.out.println(res);
                   }
 }
