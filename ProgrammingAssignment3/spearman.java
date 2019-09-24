@@ -116,7 +116,7 @@ private static String file1="C:PATHassign01/anc.txt";
             //Summation of d^2 for one Query.
             int dsqr=0;
 
-            //Number of pairs for one Query
+            //Number of pairs for one Query.
             int n = 0;
 
             //Started as the current Document ID for the Default Lucene search.
