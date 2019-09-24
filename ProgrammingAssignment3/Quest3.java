@@ -107,6 +107,7 @@ public class quest3  {
                          long numDocs = stats.getNumberOfDocuments();
 
                          double lnc = (1 + Math.log(freq))*1*(1/Math.sqrt(norm));
+                         // Document frequency 
                          double ltn = (1 + Math.log(freq))*Math.log(numDocs/(double) docFreq)*1;
 
                          return (float) (lnc*ltn);
