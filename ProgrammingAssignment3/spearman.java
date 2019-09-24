@@ -113,7 +113,7 @@ private static String file1="C:PATHassign01/anc.txt";
 
             nQry++;
 
-            //Summation of d^2 for one Query
+            //Summation of d^2 for one Query.
             int dsqr=0;
 
             //Number of pairs for one Query
