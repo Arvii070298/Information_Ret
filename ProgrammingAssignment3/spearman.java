@@ -88,7 +88,7 @@ private static String file1="C:PATHassign01/anc.txt";
 
             if(inHolder.containsKey(paraID))
             {
-                    //Return the Dock rank.
+                    //Return the Dock rank 
                     return inHolder.get(paraID);
             }
 
