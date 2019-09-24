@@ -41,7 +41,7 @@ import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 
 /**
- * Implements the lnc.ltn TF-IDF variant
+ * Implements the lnc.ltn TF-IDF variant Q1. 1
  */
 public class quest3  {
 	private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
