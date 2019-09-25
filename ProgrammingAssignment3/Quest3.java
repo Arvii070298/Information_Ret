@@ -251,7 +251,10 @@ public class quest3  {
 	    	IndexWriter writer = createWriter();
 	        writer.deleteAll();  // ensure cleaned
 
-	        List<Document> documents = new ArrayList<Document>();
+	        List<Document> documents = new ArrayList<Document>(); //toaddthelistof
+
+//Documentsweneed,List<Document>events thencreatingadocumentforeachdocumentweneed,thenaddittothelistofdocuments
+
 	        final FileInputStream fileInputStream2 = new FileInputStream(new File(PARAGRAPH_FILE));
 	        for(Data.Paragraph p: DeserializeData.iterableParagraphs(fileInputStream2)) {
 	            String paraId = p.getParaId();
