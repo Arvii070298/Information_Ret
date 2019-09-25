@@ -43,6 +43,7 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 /**
  * Implements the lnc.ltn TF-IDF variant Q1. 1
  */
+
 public class quest3  {
 	private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
     private static  String DEFAULT_SCORE_FILE = "default1.txt";
@@ -59,7 +60,7 @@ public class quest3  {
 	        
 
 	        List<String> out= new ArrayList<String>();
-
+//maps in Java implement Map interface
 	        for (Map.Entry<String, String> que: queries.entrySet()) {
 	            String queryId = que.getKey();
 	            String query = que.getValue();
@@ -107,6 +108,8 @@ public class quest3  {
                          long numDocs = stats.getNumberOfDocuments();
 
                          double lnc = (1 + Math.log(freq))*1*(1/Math.sqrt(norm));
+                         
+                         
                          // Document frequency 
                          double ltn = (1 + Math.log(freq))*Math.log(numDocs/(double) docFreq)*1;
 
@@ -142,6 +145,7 @@ public class quest3  {
                 @Override
                 protected float score(BasicStats stats, float freq, float docLen)
                 {
+                    // if fequency is greater than zero 
                     if(freq > 0)
                     {
                         return 1;
@@ -208,6 +212,7 @@ public class quest3  {
 	    
 	    public static BooleanQuery toQuery(String queryStr) throws IOException {
 	    	StandardAnalyzer analyzer = new StandardAnalyzer();
+	    	// increases dynamically 
 	        ArrayList<String> tokens = new ArrayList<String>();
 	        TokenStream tokenStream = analyzer.tokenStream("text", new StringReader(queryStr));
 	        tokenStream.reset();
