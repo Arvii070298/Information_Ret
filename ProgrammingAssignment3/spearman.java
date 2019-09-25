@@ -133,6 +133,7 @@ private static String file1="C:PATHassign01/anc.txt";
                     if(docRank!=0)
                     {
                         n++;
+                        // calculate difference = RankCurrDoc - docRank 
                         diff = currRankDoc - docRank;
                         dsqr += Math.pow(diff,2);
                     }
