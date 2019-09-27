@@ -111,7 +111,7 @@ public class quest3  {
 
                          double lnc = (1 + Math.log(freq))*1*(1/Math.sqrt(norm));
                          double ltn = (1 + Math.log(freq))*Math.log(numDocs/(double) docFreq)*1;
-
+// compute lnc  *  ltn
                          return (float) (lnc*ltn);
 
                     }
