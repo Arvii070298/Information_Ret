@@ -52,7 +52,7 @@ private static String file1="C:PATHassign01/anc.txt";
                 if (line == null) {
                     break;
                 }
-
+// split operation
                 String[] w = line.split(" ");
                 String outKey = w[0];
 
@@ -60,6 +60,7 @@ private static String file1="C:PATHassign01/anc.txt";
                     Map<String, Integer> extract = map.get(outKey);
                     String inner_key = w[2];
                     Integer is_relevant = new Integer(w[3]);
+                    //
                     extract.put(inner_key, is_relevant);
                 } else {
 
