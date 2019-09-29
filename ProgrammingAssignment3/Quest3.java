@@ -176,6 +176,7 @@ public class quest3  {
 	        	
 	        	
 	        }if(x==3) {
+	            //anc
 	        	SimilarityBase sb = new SimilarityBase() {						//anc-----------
                     @Override
                     protected float score(BasicStats stats, float freq, float docLen) {
