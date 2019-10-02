@@ -22,7 +22,7 @@ Instructions to install Maven in Terminal:
 
 *sudo apt install maven*
 
-Program gets complied by
+Program gets complied by  
 *mvn clean compile assembly:single*
 
 PATH---------add path wherever the following files are present
@@ -34,8 +34,8 @@ This will create 3 files lnn.txt bnn.txt ann.txt
 
 
 
-Download evaluation program trec eval
-http://trec.nist.gov/trec_eval/
+Download evaluation program trec eval  
+http://trec.nist.gov/trec_eval/  
 Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
 Rprec
