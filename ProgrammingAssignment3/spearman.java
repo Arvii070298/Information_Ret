@@ -38,7 +38,7 @@ private static String file1="C:PATHassign01/anc.txt";
 
 
         try {
-            reader = new FileReader(fp);
+            reader = new FileReader(fp); // reading from file
             buffer = new BufferedReader(reader);
 
         } catch (IOException e) {
