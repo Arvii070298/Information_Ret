@@ -49,23 +49,30 @@ public class quest3  {
     private static final String INDEX_DIR = "index";
  //    private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
-    private static HashMap<String, String> queries = null;
+    private static HashMap<String, String> queries = null; // Initializing Hash map
 	
 	
     
     
 	  private static List<String> value(IndexSearcher searcher) throws IOException {
+	        ////multiplethreadscancallanyofitsmethods,concurrently(IndexSearcher)
 	        int maxResults = 100;
 	        
 
 	        List<String> out= new ArrayList<String>();
+	        ////CreatesaListoftypestring,andthe
+
+//list can be potentially typecast into any other type of list.
 
 	        for (Map.Entry<String, String> que: queries.entrySet()) {
 	            String queryId = que.getKey();
+	            ////getKey()– Returns the key for the corresponding map entry
 	            String query = que.getValue();
+	            
+	            /////getValue()– Returns the value for the corresponding map entry
 
 	            TopDocs tops = searcher.search(toQuery(query), maxResults);
-	            ScoreDoc[] scoreDoc = tops.scoreDocs;
+	            ScoreDoc[] scoreDoc = tops.scoreDocs; // //TopDocs-Modifies incoming TopDocs by replacing the top hits with resorted's hit
 
 	            int rank = 1;
 	            for (ScoreDoc score : scoreDoc) {
@@ -82,10 +89,13 @@ public class quest3  {
 	  public static void main(String[] args) throws IOException {
 	    	final String File=args[0];
 	    	queries = new HashMap<String, String>();
-
+//creates a new queries
 	        File file = new File(File);
 	       
 	        final FileInputStream fileInputStream = new FileInputStream(file);
+	        ///Java FileInputStream classisapartofjava.iopackage.
+	        //FileInputStream obtains input bytes from a file in a filesystem.
+//FileInputStream is a subclass of InputStream class.
 	        for(Data.Page p: DeserializeData.iterableAnnotations(fileInputStream)) {
 	            String queryId = p.getPageId();
 	            String query = p.getPageName();
@@ -94,6 +104,9 @@ public class quest3  {
 	        }
 	   
 	        final String PARAGRAPH_FILE=args[1];
+	        
+	        ////finalStringPARAGRAPH_FILE=args[1]
+	        
 	        buildIndex(PARAGRAPH_FILE);
 	        int x=1;
 	        IndexSearcher searcher = setupIndexSearcher();
@@ -245,13 +258,25 @@ public class quest3  {
 	    }
 	    
 	    public static void buildIndex(String args) throws IOException {
+	        //{//buildIndex-is the
+//position of an item inside an array,a list,or other datastructure that has ordering.
 	    	String PARAGRAPH_FILE=args;
 	    	IndexWriter writer = createWriter();
 	        writer.deleteAll();  // ensure cleaned
 
 	        List<Document> documents = new ArrayList<Document>();
+	        
+	        ////toaddthelistof Documentsweneed,List<Document>events
+// then creating a document for each document we need,then add it to the list of documents
+	        
+	        
 	        final FileInputStream fileInputStream2 = new FileInputStream(new File(PARAGRAPH_FILE));
 	        for(Data.Paragraph p: DeserializeData.iterableParagraphs(fileInputStream2)) {
+	            
+	            ////DeserializeData-Itisthereverseprocesswherethebytestream isusedtorecreatetheactual
+//Javaobjectinmemory
+	            
+	            
 	            String paraId = p.getParaId();
 	            String textOnly = p.getTextOnly();
 	            Document document = new Document();
