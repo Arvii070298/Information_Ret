@@ -1,0 +1,64 @@
+JDK Version used - 12.0.2
+Apache-maven version - 3.6.2
+team7/ProgrammingAssignment3/
+
+
+This program has 2 java files (quest3.java ,spearman.java) and 1 pom.xml file in total
+
+
+Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
+wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
+tar xf test200.v2.0.tar.xz
+Directory: //test200/test200-train/train.pages.cbor-article.qrels
+
+For this program to work on Linux, Maven has to be installed
+Instructions to install Maven in Terminal:
+
+sudo apt install maven
+
+Program gets complied by
+mvn clean compile assembly:single
+
+PATH---------add path wherever the following files are present
+
+java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar quest3.java PATH/test200/test200-train/train.pages.cbor-outlines.cbor PATH/test200/test200-train/train.pages.cbor-paragraphs.cbor
+
+
+This will create 3 files lnn.txt bnn.txt ann.txt
+
+
+
+Download evaluation program trec eval
+http://trec.nist.gov/trec_eval/
+Directory: //test200/test200-train/train.pages.cbor-article.qrels
+
+Rprec
+
+./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnn.txt -q -c
+./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c
+./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c
+
+MAP Mean Average Precision
+
+./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnn.txt -q -c
+./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c
+./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c
+
+NDCG20
+
+./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnn.txt -q -c
+./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c
+./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c
+
+spearman.java
+
+java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/lnn.txt
+java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/bnn.txt
+java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/anc.txt
+
+
+
+
+
+
+
