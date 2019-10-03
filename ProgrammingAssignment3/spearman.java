@@ -131,11 +131,12 @@ public class spearman {
                     int diff=0;
                     / increment Current Document
                     CurDoc++;
+                    //each tf-idf variant is compared with default
                      Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
                    if(docRank!=0)
                     {
                         n++;
-                        // calculate difference between cuent and rank document
+                        // calculate difference between default and each of tf-df variant
                         diff = CurDoc - docRank;
                         
                         // calculate dsqaure
