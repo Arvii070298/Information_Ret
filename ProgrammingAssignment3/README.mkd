@@ -42,7 +42,9 @@ Directory: //test200/test200-train/train.pages.cbor-article.qrels
 Rprec
 
 **./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
+
 **./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt**
+
 **./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt**
 
 
@@ -50,7 +52,9 @@ Rprec
 MAP Mean Average Precision
 
 **./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
+
 **./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt**
+
 **./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt**
 
 
@@ -58,7 +62,9 @@ MAP Mean Average Precision
 NDCG20
 
 **./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
+
 **./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt**
+
 **./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt**
 
 
@@ -66,7 +72,9 @@ NDCG20
 spearman.java
 
 **java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/lnc.txt**
+
 **java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/bnn.txt**
+
 **java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/anc.txt**
 
 
