@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class spearman {
-private static String file="C:PATH/assign01/default.txt";
-private static String file1="C:PATHassign01/anc.txt";
+//private static String file="C:PATH/assign01/default.txt";
+//private static String file1="C:PATHassign01/anc.txt";
   //private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
     private final String LuceneIndexPath = "lucene.index";
     public static Map<String, Map<String, Integer>> qrel_data;
@@ -106,6 +106,8 @@ private static String file1="C:PATHassign01/anc.txt";
     public static void main (String[] args) throws FileNotFoundException {
     double Correlation = 0.0;
         int nQry=0;
+       String file=args[0];
+      String  file1=args[1];
         Map<String, Map<String, Integer>> LucDft = readRunFile(file);
         Map<String, Map<String, Integer>> cstTfIdf = readRunFile(file1);
        
