@@ -101,7 +101,7 @@ public class spearman {
 
 
    
-   
+  
 
     public static void main (String[] args) throws FileNotFoundException {
     double Correlation = 0.0;
