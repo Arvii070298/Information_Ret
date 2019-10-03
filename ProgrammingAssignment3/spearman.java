@@ -105,28 +105,37 @@ public class spearman {
 
     public static void main (String[] args) throws FileNotFoundException {
     double Correlation = 0.0;
+    // intialize correlation to 0
         int nQry=0;
+        
        String file=args[0];
       String  file1=args[1];
+      
         Map<String, Map<String, Integer>> LucDft = readRunFile(file);
+        //Lucene default 
         Map<String, Map<String, Integer>> cstTfIdf = readRunFile(file1);
+        // Custom tfidf
        
         for (Map.Entry<String, Map<String, Integer>> Query : LucDft.entrySet())
         {
 
             nQry++;
             int dsquare=0;
+            // intialize dsquare
             int n = 0;
+            // initialize Curent Document
             int CurDoc = 0;
 
             for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
             {
                     int diff=0;
+                    / increment Current Document
                     CurDoc++;
                      Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
                    if(docRank!=0)
                     {
                         n++;
+                        // calculate difference between 
                         diff = CurDoc - docRank;
                         dsquare = dsquare+ Math.pow(diff,2);
                     }
