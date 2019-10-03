@@ -135,8 +135,10 @@ public class spearman {
                    if(docRank!=0)
                     {
                         n++;
-                        // calculate difference between 
+                        // calculate difference between cuent and rank document
                         diff = CurDoc - docRank;
+                        
+                        // calculate dsqaure
                         dsquare = dsquare+ Math.pow(diff,2);
                     }
             }
@@ -149,9 +151,10 @@ public class spearman {
             }
 
             double result = 1-(num /denom);
+            // calculate correlation
              Correlation = Correlation + result;
         }
-
+// calculate result
       double res=  Correlation/nQry;
       System.out.println(res);
                   }
