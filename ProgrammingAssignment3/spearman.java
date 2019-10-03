@@ -115,23 +115,23 @@ public class spearman {
         {
 
             nQry++;
-            int dsqr=0;
+            int dsquare=0;
             int n = 0;
-            int crDoc = 0;
+            int CurDoc = 0;
 
             for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
             {
-                    int difference=0;
-                    crDoc++;
+                    int diff=0;
+                    CurDoc++;
                      Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
                    if(docRank!=0)
                     {
                         n++;
-                        difference = crDoc - docRank;
-                        dsqr = dsqr+ Math.pow(difference,2);
+                        diff = CurDoc - docRank;
+                        dsquare = dsquare+ Math.pow(diff,2);
                     }
             }
-            double num = 6*dsqr;
+            double num = 6*dsquare;
             double denom = n *((Math.pow(n,2))-1);
 
             if(denom == 0)
