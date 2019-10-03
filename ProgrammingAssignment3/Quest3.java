@@ -55,10 +55,13 @@ public class quest3  {
     
     
 	  private static List<String> value(IndexSearcher searcher) throws IOException {
+	      
+	      // initializing max reult 100
 	        int maxResults = 100;
 	        
 
 	        List<String> out= new ArrayList<String>();
+	        // creating Array list so that it can dyanamically allocate size
 
 	        for (Map.Entry<String, String> que: queries.entrySet()) {
 	            String queryId = que.getKey();
