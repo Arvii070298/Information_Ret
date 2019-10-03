@@ -30,11 +30,12 @@ PATH---------add path wherever the following files are present
 *java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar quest3.java PATH/test200/test200-train/train.pages.cbor-outlines.cbor PATH/test200/test200-train/train.pages.cbor-paragraphs.cbor*
 
 
-This will create 3 files lnn.txt bnn.txt ann.txt
+This will create 3 files 1. lnn.txt 2. bnn.txt 3. ann.txt
 
 
 
-Download evaluation program trec eval  
+Download evaluation program trec eval 
+
 http://trec.nist.gov/trec_eval/  
 Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
