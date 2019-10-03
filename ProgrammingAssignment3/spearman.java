@@ -155,7 +155,7 @@ public class spearman {
             // calculate correlation
              Correlation = Correlation + result;
         }
-// calculate result
+// calculate result using average
       double res=  Correlation/nQry;
       System.out.println(res);
                   }
