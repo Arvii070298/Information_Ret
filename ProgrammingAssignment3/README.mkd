@@ -41,17 +41,17 @@ Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
 Rprec
 
-***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt **
-**./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   **
-**./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt *  **
+***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt ***
+**./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   ***
+**./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt ***
 
 
 
 MAP Mean Average Precision
 
-***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt **
-**./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   **
-**./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt *  **
+***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt ***
+***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   ***
+***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt ***
 
 
 
