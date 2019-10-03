@@ -115,30 +115,23 @@ public class spearman {
         {
 
             nQry++;
-
-            //Summation of d^2 for one Query.
             int dsqr=0;
-
-            //Number of pairs for one Query.
             int n = 0;
-
-            //Started as the current Document ID for the Default Lucene search.
-            int currRankDoc = 0;
+            int crDoc = 0;
 
             for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
             {
-                    int diff=0;
+                    int difference=0;
 
-                    currRankDoc++;
+                    crDoc++;
                    
                     Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
 
                     if(docRank!=0)
                     {
                         n++;
-                        // calculate difference = RankCurrDoc - docRank 
-                        diff = currRankDoc - docRank;
-                        dsqr += Math.pow(diff,2);
+                        difference = crDoc - docRank;
+                        dsqr += Math.pow(difference,2);
                     }
 
             }
