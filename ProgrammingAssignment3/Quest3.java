@@ -44,37 +44,28 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
  * Implements the lnc.ltn TF-IDF variant
  */
 public class quest3  {
-	//private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+	private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
     private static  String DEFAULT_SCORE_FILE ;
     private static final String INDEX_DIR = "index";
- //    private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+    private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
-    private static HashMap<String, String> queries = null; // Initializing Hash map
+    private static HashMap<String, String> queries = null;
 	
 	
     
     
 	  private static List<String> value(IndexSearcher searcher) throws IOException {
-	        
-	        //multiple threads can call any of its methods, concurrently (Index Searcher)
-	        
 	        int maxResults = 100;
 	        
 
 	        List<String> out= new ArrayList<String>();
-	        // Creates a List of type string , and the
-
-//list can be potentially typecast into any other type of list.
 
 	        for (Map.Entry<String, String> que: queries.entrySet()) {
 	            String queryId = que.getKey();
-	            ////getKey()– Returns the key for the corresponding map entry
 	            String query = que.getValue();
-	            
-	            //getValue()– Returns the value for the corresponding map entry
 
 	            TopDocs tops = searcher.search(toQuery(query), maxResults);
-	            ScoreDoc[] scoreDoc = tops.scoreDocs; // TopDocs-Modifies incoming TopDocs by replacing the top hits with resorted's hit
+	            ScoreDoc[] scoreDoc = tops.scoreDocs;
 
 	            int rank = 1;
 	            for (ScoreDoc score : scoreDoc) {
@@ -89,15 +80,12 @@ public class quest3  {
 	
 	
 	  public static void main(String[] args) throws IOException {
-	    	final String File=args[0];
+	    //	final String File=args[0];
 	    	queries = new HashMap<String, String>();
-//creates a new queries
+
 	        File file = new File(File);
-// create a file	       
+	       
 	        final FileInputStream fileInputStream = new FileInputStream(file);
-	        // FileInputStream class is a part of java.iopackage.
-	        // FileInputStream obtains input bytes from a file in a filesystem.
-// FileInputStream is a subclass of InputStream class.
 	        for(Data.Page p: DeserializeData.iterableAnnotations(fileInputStream)) {
 	            String queryId = p.getPageId();
 	            String query = p.getPageName();
@@ -105,17 +93,14 @@ public class quest3  {
 	    	
 	        }
 	   
-	        final String PARAGRAPH_FILE=args[1];
-	        
-	        //finalStringPARAGRAPH_FILE=args[1]
-	        
+	       // final String PARAGRAPH_FILE=args[1];
 	        buildIndex(PARAGRAPH_FILE);
 	        int x=1;
 	        IndexSearcher searcher = setupIndexSearcher();
 	        
 	        if(x==1) {
 	        
-	        SimilarityBase sb= new SimilarityBase() {													//lnc.ltn
+	        SimilarityBase sb= new SimilarityBase() {													//lncltn
 	        	
                     @Override
                     protected float score(BasicStats stats, float freq, float docLen)
@@ -126,7 +111,7 @@ public class quest3  {
 
                          double lnc = (1 + Math.log(freq))*1*(1/Math.sqrt(norm));
                          double ltn = (1 + Math.log(freq))*Math.log(numDocs/(double) docFreq)*1;
-// compute lnc  *  ltn
+
                          return (float) (lnc*ltn);
 
                     }
@@ -145,7 +130,7 @@ public class quest3  {
 	        List<String> content = value(searcher);
 	       
 	        
-	        DEFAULT_SCORE_FILE="lnn.txt";
+	        DEFAULT_SCORE_FILE="lnc.txt";
 	        FileWriter writer = new FileWriter(DEFAULT_SCORE_FILE);
 	        for(String output: content) {
 	            writer.write(output + System.lineSeparator());
@@ -169,7 +154,7 @@ public class quest3  {
                 @Override
                 public String toString() {
                     return null;
-                    }
+                }
                 };
                 searcher.setSimilarity(sb);
     			
@@ -191,12 +176,22 @@ public class quest3  {
 	        	
 	        	
 	        }if(x==3) {
-	            //anc
 	        	SimilarityBase sb = new SimilarityBase() {						//anc-----------
                     @Override
                     protected float score(BasicStats stats, float freq, float docLen) {
+                    	float norm = 1;
+                        long docFreq = stats.getDocFreq();
+                        long numDocs = stats.getNumberOfDocuments();
                         double res = (0.5 + ((0.5 * freq)/ stats.getTotalTermFreq()) ) / Math.sqrt(docLen);
-                        return (float) res;
+                        
+                        //apc
+                    double apc=  (0.5 + ((0.5 * freq)/ stats.getTotalTermFreq()) )* (Math.max(0,  Math.log(numDocs-docFreq/(double) docFreq)))/ Math.sqrt(docLen);
+                        return (float) (apc*res);
+                        
+                        
+                        
+                        
+                       
                     }
 
                     @Override
@@ -260,25 +255,13 @@ public class quest3  {
 	    }
 	    
 	    public static void buildIndex(String args) throws IOException {
-	        //{//buildIndex-is the
-//position of an item inside an array,a list,or other datastructure that has ordering.
 	    	String PARAGRAPH_FILE=args;
 	    	IndexWriter writer = createWriter();
 	        writer.deleteAll();  // ensure cleaned
 
 	        List<Document> documents = new ArrayList<Document>();
-	        
-	        ////toaddthelistof Documentsweneed,List<Document>events
-// then creating a document for each document we need,then add it to the list of documents
-	        
-	        
 	        final FileInputStream fileInputStream2 = new FileInputStream(new File(PARAGRAPH_FILE));
 	        for(Data.Paragraph p: DeserializeData.iterableParagraphs(fileInputStream2)) {
-	            
-	            ////DeserializeData-Itisthereverseprocesswherethebytestream isusedtorecreatetheactual
-//Javaobjectinmemory
-	            
-	            
 	            String paraId = p.getParaId();
 	            String textOnly = p.getTextOnly();
 	            Document document = new Document();
