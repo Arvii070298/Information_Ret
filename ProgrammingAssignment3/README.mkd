@@ -39,7 +39,9 @@ Download evaluation program trec eval
 http://trec.nist.gov/trec_eval/  
 Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
-Rprec
+**ADD PATH --- add the path in the query where the particular file is located**
+
+**Rprec**
 
 **./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
 
@@ -49,7 +51,7 @@ Rprec
 
 
 
-MAP Mean Average Precision
+**MAP Mean Average Precision**
 
 **./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
 
@@ -59,7 +61,7 @@ MAP Mean Average Precision
 
 
 
-NDCG20
+**NDCG20**
 
 **./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt**
 
