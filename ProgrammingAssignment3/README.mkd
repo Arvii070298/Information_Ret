@@ -71,7 +71,7 @@ Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
 
 
-spearman.java
+**spearman.java**
 
 **java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/lnc.txt**
 
