@@ -55,12 +55,14 @@ public class quest3  {
     
     
 	  private static List<String> value(IndexSearcher searcher) throws IOException {
-	        ////multiplethreadscancallanyofitsmethods,concurrently(IndexSearcher)
+	        
+	        //multiple threads can call any of its methods, concurrently (Index Searcher)
+	        
 	        int maxResults = 100;
 	        
 
 	        List<String> out= new ArrayList<String>();
-	        ////CreatesaListoftypestring,andthe
+	        // Creates a List of type string , and the
 
 //list can be potentially typecast into any other type of list.
 
@@ -69,10 +71,10 @@ public class quest3  {
 	            ////getKey()– Returns the key for the corresponding map entry
 	            String query = que.getValue();
 	            
-	            /////getValue()– Returns the value for the corresponding map entry
+	            //getValue()– Returns the value for the corresponding map entry
 
 	            TopDocs tops = searcher.search(toQuery(query), maxResults);
-	            ScoreDoc[] scoreDoc = tops.scoreDocs; // //TopDocs-Modifies incoming TopDocs by replacing the top hits with resorted's hit
+	            ScoreDoc[] scoreDoc = tops.scoreDocs; // TopDocs-Modifies incoming TopDocs by replacing the top hits with resorted's hit
 
 	            int rank = 1;
 	            for (ScoreDoc score : scoreDoc) {
@@ -91,11 +93,11 @@ public class quest3  {
 	    	queries = new HashMap<String, String>();
 //creates a new queries
 	        File file = new File(File);
-	       
+// create a file	       
 	        final FileInputStream fileInputStream = new FileInputStream(file);
-	        ///Java FileInputStream classisapartofjava.iopackage.
-	        //FileInputStream obtains input bytes from a file in a filesystem.
-//FileInputStream is a subclass of InputStream class.
+	        // FileInputStream class is a part of java.iopackage.
+	        // FileInputStream obtains input bytes from a file in a filesystem.
+// FileInputStream is a subclass of InputStream class.
 	        for(Data.Page p: DeserializeData.iterableAnnotations(fileInputStream)) {
 	            String queryId = p.getPageId();
 	            String query = p.getPageName();
@@ -105,7 +107,7 @@ public class quest3  {
 	   
 	        final String PARAGRAPH_FILE=args[1];
 	        
-	        ////finalStringPARAGRAPH_FILE=args[1]
+	        //finalStringPARAGRAPH_FILE=args[1]
 	        
 	        buildIndex(PARAGRAPH_FILE);
 	        int x=1;
@@ -113,7 +115,7 @@ public class quest3  {
 	        
 	        if(x==1) {
 	        
-	        SimilarityBase sb= new SimilarityBase() {													//lncltn
+	        SimilarityBase sb= new SimilarityBase() {													//lnc.ltn
 	        	
                     @Override
                     protected float score(BasicStats stats, float freq, float docLen)
