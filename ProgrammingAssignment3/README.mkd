@@ -20,10 +20,10 @@ Directory: //test200/test200-train/train.pages.cbor-article.qrels
 For this program to work on Linux, Maven has to be installed  
 Instructions to install Maven in Terminal:
 
-*sudo apt install maven*
+***sudo apt install maven***
 
 Program gets complied by  
-*mvn clean compile assembly:single*
+***mvn clean compile assembly:single***
 
 PATH---------add path wherever the following files are present
 
