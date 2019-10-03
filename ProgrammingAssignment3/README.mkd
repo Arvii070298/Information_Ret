@@ -27,7 +27,7 @@ Program gets complied by
 
 PATH---------add path wherever the following files are present
 
-*java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar quest3.java PATH/test200/test200-train/train.pages.cbor-outlines.cbor PATH/test200/test200-train/train.pages.cbor-paragraphs.cbor*
+***java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar quest3.java PATH/test200/test200-train/train.pages.cbor-outlines.cbor PATH/test200/test200-train/train.pages.cbor-paragraphs.cbor***
 
 
 This will create 3 files 1. lnc.txt 2. bnn.txt 3. ann.txt
@@ -41,30 +41,33 @@ Directory: //test200/test200-train/train.pages.cbor-article.qrels
 
 Rprec
 
-*./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt -q -c  
-./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c  
-./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c*  
+***./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt 
+./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   
+./trec_eval -m Rprec /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt *  **
+
 
 
 MAP Mean Average Precision
 
-*./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt -q -c  
-./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c  
-./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c*  
+***./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt 
+./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt   
+./trec_eval -m map /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt *  **
+
 
 
 NDCG20
 
-*./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt -q -c  
-./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt -q -c  
-./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt -q -c*  
+***./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/lnc.txt   
+./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/bnn.txt 
+./trec_eval -m ndcg_cut.20 /ADD PATH/test200/test200-train/train.pages.cbor-article.qrels /ADD PATH/anc.txt*  **
+
 
 
 spearman.java
 
-*java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/lnc.txt  
+***java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/lnc.txt  
 java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/bnn.txt  
-java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/anc.txt*  
+java -Xmx50g -cp PATH/target/assign01-0.0.1-SNAPSHOT-jar-with-dependencies.jar spearman.java PATH/default.txt PATH/anc.txt*  **
 
 
 
