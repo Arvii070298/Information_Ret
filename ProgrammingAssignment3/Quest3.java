@@ -44,10 +44,10 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
  * Implements the lnc.ltn TF-IDF variant
  */
 public class quest3  {
-	private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+//	private static final String File = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
     private static  String DEFAULT_SCORE_FILE ;
     private static final String INDEX_DIR = "index";
-    private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+   // private static final String PARAGRAPH_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 
     private static HashMap<String, String> queries = null;
 	
@@ -80,7 +80,7 @@ public class quest3  {
 	
 	
 	  public static void main(String[] args) throws IOException {
-	    //	final String File=args[0];
+	  final String File=args[0];
 	    	queries = new HashMap<String, String>();
 
 	        File file = new File(File);
@@ -93,7 +93,7 @@ public class quest3  {
 	    	
 	        }
 	   
-	       // final String PARAGRAPH_FILE=args[1];
+	      final String PARAGRAPH_FILE=args[1];
 	        buildIndex(PARAGRAPH_FILE);
 	        int x=1;
 	        IndexSearcher searcher = setupIndexSearcher();
