@@ -103,7 +103,47 @@ public class spearman {
    
   
 
-    //public static void main (String[] args) throws FileNotFoundException {
+    public static void main (String[] args) throws FileNotFoundException {
+          double Correlation = 0.0;
+        int number_query=0;
+        Map<String, Map<String, Integer>> LuceneDefault = readRunFile(file);
+        Map<String, Map<String, Integer>> RankTFIDF = readRunFile(file1);
+       
+        for (Map.Entry<String, Map<String, Integer>> Query : LuceneDefault.entrySet())
+        {
+
+            number_query++;
+            int diffsquare=0;
+            int n = 0;
+            int currentDocRank = 0;
+
+            for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
+            {
+                    int diff=0;
+
+                    currentDocRank++;
+                   
+                    Integer docRank = docRanking(RankTFIDF,Query.getKey(),p.getKey());
+
+                    if(docRank!=0)
+                    {
+                        n++;
+                        diff = currentDocRank - docRank;
+                        diffsquare += diff*diff;
+                    }
+
+            }
+
+            double result = 1-( (6 * diffsquare) / (n * (n * n) - 1));;
+
+            Correlation+= result;
+        }
+
+      double res=  Correlation/number_query;
+      System.out.println(res);
+                  
+}
+
     
       
           
