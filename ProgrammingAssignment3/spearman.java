@@ -103,60 +103,7 @@ public class spearman {
    
   
 
-    public static void main (String[] args) throws FileNotFoundException {
-    double Correlation = 0.0;
-    // intialize correlation to 0
-        int nQry=0;
-        
-       String file=args[0];
-      String  file1=args[1];
+    //public static void main (String[] args) throws FileNotFoundException {
+    
       
-        Map<String, Map<String, Integer>> LucDft = readRunFile(file);
-        //Lucene default 
-        Map<String, Map<String, Integer>> cstTfIdf = readRunFile(file1);
-        // Custom tfidf
-       
-        for (Map.Entry<String, Map<String, Integer>> Query : LucDft.entrySet())
-        {
-
-            nQry++;
-            int dsquare=0;
-            // intialize dsquare
-            int n = 0;
-            // initialize Curent Document
-            int CurDoc = 0;
-
-            for (Map.Entry<String, Integer> p : Query.getValue().entrySet())
-            {
-                    int diff=0;
-                    / increment Current Document
-                    CurDoc++;
-                    //each tf-idf variant is compared with default
-                     Integer docRank = docRanking(cstTfIdf,Query.getKey(),p.getKey());
-                   if(docRank!=0)
-                    {
-                        n++;
-                        // calculate difference between default and each of tf-df variant
-                        diff = CurDoc - docRank;
-                        
-                        // calculate dsqaure
-                        dsquare = dsquare+ Math.pow(diff,2);
-                    }
-            }
-            double num = 6*dsquare;
-            double denom = n *((Math.pow(n,2))-1);
-
-            if(denom == 0)
-            {
-                continue;
-            }
-
-            double result = 1-(num /denom);
-            // calculate correlation
-             Correlation = Correlation + result;
-        }
-// calculate result using average
-      double res=  Correlation/nQry;
-      System.out.println(res);
-                  }
-}
+          
