@@ -17,8 +17,7 @@ mvn clean compile assembly:single
 
 
 Download evaluation program trec eval
-http://trec.nist.gov/trec_eval/
-Directory: //test200/test200-train/train.pages.cbor-article.qrels
+http://trec.nist.gov/trec_eval/  
 MAP
 ./trec_eval -m map /ADD PATH/base.train.cbor-article.qrels /ADD PATH/final.txt 
 
