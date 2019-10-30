@@ -1,5 +1,3 @@
-package team07.assign01;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
