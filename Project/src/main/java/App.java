@@ -59,6 +59,15 @@ public class App
     private static Document createDocument(String id, String text)
     {
         Document document = new Document();
+        
+        /* 
+        we do not want the paragraph id to be tokenized and hence you should not store it as a TextField in Lucene but rather as a
+StringField. 
+add this document to the index using the Lucene method IndexWriter.addDocument().
+
+        
+        */
+        
         document.add(new StringField("id", id , Field.Store.YES));
         document.add(new TextField("text", text , Field.Store.YES));
         return document;
