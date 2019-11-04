@@ -161,7 +161,7 @@ public class Assignment4 {
 	}
 	
 	public float BLaplaceScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
-			
+		// initialize score value float	
 		
 		float score ;
 		score = stats.getBoost()*(termFreq+1)/(docLength + stats.getTotalTermFreq());
@@ -196,6 +196,7 @@ public class Assignment4 {
 	}
 	
 	public int getVocabSize(IndexReader rd){
+		// initialize vsize to zero
 		int vsize = 0;
 		try {
 			Fields fields = MultiFields.getFields(rd);
