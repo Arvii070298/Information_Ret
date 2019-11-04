@@ -49,8 +49,9 @@ public class Assignment3 {
 	//public static String CBOR_FILE = null;
 	//public static String CBOR = null;
 	
+	// initiae indexx seacher to null
 	private IndexSearcher is = null;
-	
+	// initialize query parser to null
 	private QueryParser qp = null;
 	
 	
@@ -59,6 +60,7 @@ public class Assignment3 {
 
 	public void indexAllParas(int tfidf) throws CborException, IOException {
 		Directory indexdir = FSDirectory.open((new File(Assignment4.INDEX_DIR)).toPath());
+		
 		IndexWriterConfig conf = new IndexWriterConfig(new StandardAnalyzer());
 		if(customScore)
 			conf.setSimilarity(this.getCustomSimilarity(tfidf));
@@ -70,11 +72,15 @@ public class Assignment3 {
 		iw.close();
 	}
 	public SimilarityBase getCustomSimilarity(final int tfidf){
+	    // create new similarity base 
+	    
 		SimilarityBase mySimiliarity = new SimilarityBase() {
 			
 			protected float score(BasicStats stats, float freq, float docLength) {
+			    // initialze freq score to zero
 				float freqScore = 0;
 				switch(tfidf){
+				    
 				case 1:
 					freqScore = 1+(float)Math.log(freq);
 				case 2:
