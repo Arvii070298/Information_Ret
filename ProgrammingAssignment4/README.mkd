@@ -21,3 +21,6 @@ Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
 wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
 
 **tar xf test200.v2.0.tar.xz**
+
+java -jar target/project-1.0-SNAPSHOT-jar-with-dependencies.jar test200/test200-train/train.pages.cbor-paragraphs.cbor test200/test200-train/train.pages.cbor-outlines.cbor 1
+
