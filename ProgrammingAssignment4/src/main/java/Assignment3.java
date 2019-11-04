@@ -44,8 +44,16 @@ public class Assignment3 {
 	static final String LUCENE_OUT_SEC = "default.txt";
 	static final String CUSTOM_OUT_SEC = "lnn.txt";
 	
+	// initialize index searcher to null
+	
 	private IndexSearcher is = null;
+	
+	// initialize query parser to null
+	
 	private QueryParser qp = null;
+	
+	// initialize custom score
+	
 	private boolean customScore = true; 
 
 	public void indexAllParas(int tfidf) throws CborException, IOException {
