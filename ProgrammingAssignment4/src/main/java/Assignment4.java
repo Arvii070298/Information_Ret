@@ -38,20 +38,39 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 
 public class Assignment4 {
+    //
+    
 	private static List<String> out1= new ArrayList<String>();
+	
+	// initialize indexsearcher to null
+	
 	private IndexSearcher is = null;
+	
+	
+//initialize query parser to null
+
 	private QueryParser qp = null;
+// initialize smoothing 
 	private int smoothing ;
 	static final String INDEX_DIR = "index";
 	//static final String CBOR_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
 //	static final String CBOR = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
 	private static final String CUSTOM_SCORE_FILE = "file.txt";
+	
+	// custom out
 	static final String CUSTOM_OUT = "";
+//cbor_file
 	public static String CBOR_FILE = null;
+	// initilaze cbor to zero
 	public static String CBOR = null;
+	
 	public Assignment4(int sm){
 		this.smoothing = sm;
 	}
+	// aguments include 1.vocabulary  size 
+	//                  2.lambda
+	//                  3. mu
+	
 	public SimilarityBase getCustomSimilarity(final int smoothing, final int vocabSize, final float lambda, final float mu){
 		LMSimilarity mySimiliarity = new LMSimilarity() {
 			
