@@ -72,7 +72,7 @@ public class Assignment3 {
 	public SimilarityBase getCustomSimilarity(final int tfidf){
 		SimilarityBase mySimiliarity = new SimilarityBase() {
 			
-			protected float score(BasicStats stats, float freq, float docLen) {
+			protected float score(BasicStats stats, float freq, float docLength) {
 				float freqScore = 0;
 				switch(tfidf){
 				case 1:
@@ -127,6 +127,7 @@ public class Assignment3 {
 		tds = is.search(q, n);
 		retDocs = tds.scoreDocs;
 		Document d;
+		// arraylist dynamically allcates the memory
 		ArrayList<String> runStringsForPage = new ArrayList<String>();
 		String method = "lucene";
 		if(outfilePath == null){
