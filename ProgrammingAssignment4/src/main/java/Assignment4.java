@@ -1,4 +1,3 @@
-
 import java.io.File;
 
 import java.io.FileInputStream;
@@ -60,16 +59,16 @@ public class Assignment4 {
 				float score = 0;
 				switch(smoothing){
 				case 1://Laplace
-					score = getLaplaceSmoothedScore(freq, docLen, vocabSize);
+					score = ULaplaceScore(freq, docLen, vocabSize);
 					break;
 				case 2://Jelinek-Mercer
-					score = getJMSmoothedScore(freq, docLen, lambda, (LMSimilarity.LMStats)stats);
+					score = UJMScore(freq, docLen, lambda, (LMSimilarity.LMStats)stats);
 					break;
 				case 3://Dirichlet
-					score = getDirichletSmoothedScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
+					score = UDirichletScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
 					break;
 				case 4://Bigram with Laplace (B-L):
-					score = getBigramWithLaplaceSmoothedScore(freq, docLen, vocabSize,(LMSimilarity.LMStats)stats);
+					score = BLaplaceScore(freq, docLen, vocabSize,(LMSimilarity.LMStats)stats);
 					break;
 				}
 				return score;
@@ -90,25 +89,25 @@ public class Assignment4 {
 	
 	
 	}
-	public float getLaplaceSmoothedScore(float termFreq, float docLength, long vocabSize){
+	public float ULaplaceScore(float termFreq, float docLength, long vocabSize){
 		float score = 0;
 		score = (termFreq+1)/(docLength+vocabSize);
 		return score;
 	}
 	
-	public float getJMSmoothedScore(float termFreq, float docLength, float lambda, LMSimilarity.LMStats stats){
+	public float UJMScore(float termFreq, float docLength, float lambda, LMSimilarity.LMStats stats){
 		float score;
 		score = lambda*termFreq/docLength+(1-lambda)*stats.getCollectionProbability();
 		return score;
 	}
 	
-	public float getDirichletSmoothedScore(float termFreq, float docLength, float mu, LMSimilarity.LMStats stats){
+	public float UDirichletScore(float termFreq, float docLength, float mu, LMSimilarity.LMStats stats){
 		float score;
 		score = (termFreq+mu*stats.getCollectionProbability()) / (docLength + mu);
 		return score;
 	}
 	
-	public float getBigramWithLaplaceSmoothedScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
+	public float BLaplacScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
 			
 		
 		float score ;
@@ -158,7 +157,7 @@ public class Assignment4 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//("Vocabulary size : " + vsize);
+		
 		return vsize;
 	}
 	
@@ -169,12 +168,7 @@ public class Assignment4 {
 		}
 		
 
-		/*
-		 * The first arg of QueryParser constructor specifies which field of document to
-		 * match with query, here we want to search in the para text, so we chose
-		 * parabody.
-		 * 
-		 */
+	
 		if (qp == null) {
 			qp = new QueryParser("parabody", new EnglishAnalyzer());
 		}
@@ -185,7 +179,7 @@ public class Assignment4 {
 		ScoreDoc[] retDocs;
 		int vocabSize;
 		
-		//System.out.println("Query: " + page.getPageName());
+
 		q = qp.parse(page.getPageName());
 		vocabSize = getVocabSize(is.getIndexReader());
 		is.setSimilarity(this.getCustomSimilarity(this.smoothing, vocabSize, 0.9f, 1000));
@@ -198,9 +192,7 @@ public class Assignment4 {
         
 		for (int i = 0; i < retDocs.length; i++) {
 			d = is.doc(retDocs[i].doc);
-			//System.out.println("Doc " + i);
-			//System.out.println("Score " + tds.scoreDocs[i].score);
-			// runFile string format $queryId Q0 $paragraphId $rank $score $teamname-$methodname
+			
 			String runFileString = page.getPageId()+" Q0 "+d.getField("paraid").stringValue()
 					+" "+i+" "+tds.scoreDocs[i].score+" team7-"+method;
 					out1.add(runFileString);
@@ -219,7 +211,7 @@ public class Assignment4 {
 		final String CBOR = args[1];
 		
 		 final String CBOR_FILE = args[0]; 
-		// TODO Auto-generated method stub
+	
 		 int x=0;
 		x=Integer.parseInt( args[2]);
 		 
@@ -254,7 +246,7 @@ public class Assignment4 {
 	        writer.close();
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
