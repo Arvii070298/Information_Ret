@@ -108,10 +108,15 @@ public class Assignment4 {
 					score = UDirichletScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
 					break;
 
+// arguments include frequency , vocabulary size , document length
+
 				case 4://Bigram with Laplace (B-L):
 					score = BLaplaceScore(freq, docLen, vocabSize,(LMSimilarity.LMStats)stats);
 					break;
 				}
+
+// return score
+
 				return score;
 			}
 
@@ -131,19 +136,26 @@ public class Assignment4 {
 	
 	}
 	public float ULaplaceScore(float termFreq, float docLength, long vocabSize){
+		//initialze score to zero
+		
 		float score = 0;
+		
+		// term freq ( how amny times the term is been repeated in document) / vacabulary size ( unique number of terms in corpus)
 		score = (termFreq+1)/(docLength+vocabSize);
 		return score;
 	}
 	
 	public float UJMScore(float termFreq, float docLength, float lambda, LMSimilarity.LMStats stats){
 		float score;
+		
+		// lambda = 0.9
 		score = lambda*termFreq/docLength+(1-lambda)*stats.getCollectionProbability();
 		return score;
 	}
 	
 	public float UDirichletScore(float termFreq, float docLength, float mu, LMSimilarity.LMStats stats){
 		float score;
+		// mu =1000
 		score = (termFreq+mu*stats.getCollectionProbability()) / (docLength + mu);
 		return score;
 	}
@@ -252,7 +264,7 @@ public class Assignment4 {
 		final String CBOR = args[1];
 		
 		 final String CBOR_FILE = args[0]; 
-	
+	// initialze x=0
 		 int x=0;
 		x=Integer.parseInt( args[2]);
 		 
@@ -266,6 +278,7 @@ public class Assignment4 {
 			for(Data.Page p:pagelist){
 				a4.rankParas(p, 100);
 			} 
+			// conditional if statements 
 			String op;
 			if(x==1) {
 				op="UL.txt";
