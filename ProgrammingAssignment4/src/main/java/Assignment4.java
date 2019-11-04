@@ -85,18 +85,21 @@ public class Assignment4 {
 		    //Laplace Smoothing (add one ball per color)
 
 
-
-
-			
 			protected float score(BasicStats stats, float freq, float docLen) {
 				float score = 0;
 				switch(smoothing){
 				case 1://Laplace
+//arguments include requency, document length and vocabulary size( i.e total number of unique terms )
+				
 					score = ULaplaceScore(freq, docLen, vocabSize);
 					break;
 					
 // //Jelinek Mercer Smoothing (interpolate with collection urn)
 				case 2://Jelinek-Mercer
+// arguments include frequency, document length and lambda 
+// High value of lambda ; "AND like " retrive all the documents containing query terms
+// Low value of lambda ; "OR like " suitable for long queries
+
 					score = UJMScore(freq, docLen, lambda, (LMSimilarity.LMStats)stats);
 					break;
 					
@@ -104,6 +107,7 @@ public class Assignment4 {
 				case 3://Dirichlet
 					score = UDirichletScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
 					break;
+
 				case 4://Bigram with Laplace (B-L):
 					score = BLaplaceScore(freq, docLen, vocabSize,(LMSimilarity.LMStats)stats);
 					break;
