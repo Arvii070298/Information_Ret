@@ -27,20 +27,20 @@ echo "--------------------------O/P Files have been created---------------------
 cd trec_eval*
 make
 
-echo "------------------------------------UL Results--------------------------------"
+echo "------------------------------------Unigram laplace Results--------------------------------"
 
 ./trec_eval -m map ../test200/test200-train/train.pages.cbor-article.qrels ../UL.txt
 ./trec_eval -m Rprec ../test200/test200-train/train.pages.cbor-article.qrels ../UL.txt
 ./trec_eval -m ndcg_cut.20 ../test200/test200-train/train.pages.cbor-article.qrels ../UL.txt
 
-echo "------------------------------------U-JM Results--------------------------------"
+echo "------------------------------------Unigram-JM Results--------------------------------"
 
 
 ./trec_eval -m map ../test200/test200-train/train.pages.cbor-article.qrels ../U-JM.txt
 ./trec_eval -m Rprec ../test200/test200-train/train.pages.cbor-article.qrels ../U-JM.txt
 ./trec_eval -m ndcg_cut.20 ../test200/test200-train/train.pages.cbor-article.qrels ../U-JM.txt
 
-echo "------------------------------------U-DS Results--------------------------------"
+echo "------------------------------------Unigram-DS Results--------------------------------"
 
 
 ./trec_eval -m map ../test200/test200-train/train.pages.cbor-article.qrels ../U-DS.txt
@@ -48,7 +48,7 @@ echo "------------------------------------U-DS Results--------------------------
 ./trec_eval -m ndcg_cut.20 ../test200/test200-train/train.pages.cbor-article.qrels ../U-DS.txt
 
 
-echo "------------------------------------B-S Results--------------------------------"
+echo "------------------------------------Bi gram-S Results--------------------------------"
 
 ./trec_eval -m map ../test200/test200-train/train.pages.cbor-article.qrels ../B-L.txt
 ./trec_eval -m Rprec ../test200/test200-train/train.pages.cbor-article.qrels ../B-L.txt
