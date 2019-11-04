@@ -65,6 +65,13 @@ public class Assignment4 {
 	public static String CBOR = null;
 	
 	public Assignment4(int sm){
+	    
+	    // Idea: adjust the urn to make impossible events
+//possible (yet unlikely)
+
+//Shift part of the probability mass to unseen
+
+
 		this.smoothing = sm;
 	}
 	// aguments include 1.vocabulary  size 
@@ -73,6 +80,13 @@ public class Assignment4 {
 	
 	public SimilarityBase getCustomSimilarity(final int smoothing, final int vocabSize, final float lambda, final float mu){
 		LMSimilarity mySimiliarity = new LMSimilarity() {
+		    
+		    
+		    //Laplace Smoothing (add one ball per color)
+
+
+
+
 			
 			protected float score(BasicStats stats, float freq, float docLen) {
 				float score = 0;
@@ -80,9 +94,13 @@ public class Assignment4 {
 				case 1://Laplace
 					score = ULaplaceScore(freq, docLen, vocabSize);
 					break;
+					
+// //Jelinek Mercer Smoothing (interpolate with collection urn)
 				case 2://Jelinek-Mercer
 					score = UJMScore(freq, docLen, lambda, (LMSimilarity.LMStats)stats);
 					break;
+					
+//Dirichlet Smoothing (add 𝜇balls from collection urn)
 				case 3://Dirichlet
 					score = UDirichletScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
 					break;
