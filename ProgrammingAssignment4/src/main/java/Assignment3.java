@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -178,7 +177,7 @@ public class Assignment3 {
 			System.out.println("Doc " + i);
 			System.out.println("Score " + tds.scoreDocs[i].score);
 			String runFileString = qString+" Q0 "+d.getField("paraid").stringValue()
-					+" "+i+" "+tds.scoreDocs[i].score+" team2-"+method;
+					+" "+i+" "+tds.scoreDocs[i].score+" team7-"+method;
 			runStringsForPage.add(runFileString);
 		}
 		
