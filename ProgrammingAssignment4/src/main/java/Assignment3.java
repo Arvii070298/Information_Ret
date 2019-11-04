@@ -1,5 +1,4 @@
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -48,7 +47,7 @@ public class Assignment3 {
 	
 	private IndexSearcher is = null;
 	private QueryParser qp = null;
-	private boolean customScore = true; // make it true to use the custom tfidf scores
+	private boolean customScore = true; 
 
 	public void indexAllParas(int tfidf) throws CborException, IOException {
 		Directory indexdir = FSDirectory.open((new File(Assignment4.INDEX_DIR)).toPath());
@@ -78,9 +77,7 @@ public class Assignment3 {
 						freqScore = 1;
 					else
 						freqScore = 0;
-				//case 4:
-					
-				//case 5:
+				
 					
 				}
 				return freqScore;
@@ -106,12 +103,7 @@ public class Assignment3 {
 			is = new IndexSearcher(DirectoryReader.open(FSDirectory.open((new File(INDEX_DIR).toPath()))));
 		}
 		
-		/*
-		 * The first arg of QueryParser constructor specifies which field of document to
-		 * match with query, here we want to search in the para text, so we chose
-		 * parabody.
-		 * 
-		 */
+		
 		if (qp == null) {
 			qp = new QueryParser("parabody", new StandardAnalyzer());
 		}
@@ -158,12 +150,6 @@ public class Assignment3 {
 		}
 		
 
-		/*
-		 * The first arg of QueryParser constructor specifies which field of document to
-		 * match with query, here we want to search in the para text, so we chose
-		 * parabody.
-		 * 
-		 */
 		if (qp == null) {
 			qp = new QueryParser("parabody", new StandardAnalyzer());
 		}
@@ -202,7 +188,6 @@ public class Assignment3 {
 		fw.close();
 	}
 	
-	//public HashMap<String, double> getPageRprecMap();
 	
 	public ArrayList<Data.Page> getPageListFromPath(String path){
 		ArrayList<Data.Page> pageList = new ArrayList<Data.Page>();
@@ -211,10 +196,10 @@ public class Assignment3 {
 			for(Data.Page page: DeserializeData.iterableAnnotations(fis))
 				pageList.add(page);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		return pageList;
@@ -224,11 +209,10 @@ public class Assignment3 {
 		Assignment3 a = new Assignment3();
 		
 		try {
-			a.indexAllParas(1); // tfidf for documents 1st one
+			a.indexAllParas(1); 
 			ArrayList<Data.Page> pagelist = a.getPageListFromPath(Assignment4.CBOR);
 			String parentId = "";
 			for(Data.Page page:pagelist){
-				//a.rankParas(page, 100, 3);
 				parentId = page.getPageId();
 				for(Data.Section secL1:page.getChildSections()){
 					a.rankParasUsingSections(page, secL1, parentId, 100, 2);
@@ -237,7 +221,7 @@ public class Assignment3 {
 						a.rankParasUsingSections(page, secL2, parentId, 100, 2);
 					}
 				}
-					//a.rankParasUsingSections(page, sec, 100, 3); // tfidf for queries 2nd one
+					
 			}
 			
 		} catch (Exception e) {
