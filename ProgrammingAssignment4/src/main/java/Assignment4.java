@@ -111,7 +111,7 @@ public class Assignment4 {
 			
 		
 		float score ;
-		score = stats.getBoost()*(termFreq+1)/(docLength + stats.getTotalTermFreq());//(term-1 and term) freq
+		score = stats.getBoost()*(termFreq+1)/(docLength + stats.getTotalTermFreq());
 		return score;
 	}
 	
