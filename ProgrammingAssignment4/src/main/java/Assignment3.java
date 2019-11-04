@@ -36,44 +36,33 @@ import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 public class Assignment3 {
 
 	static final String INDEX_DIR = "index";
-	static final String CBOR_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
-	static final String CBOR_OUTLINE = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+//	static final String CBOR_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+//	static final String CBOR_OUTLINE = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
 	static final String OUTPUT_DIR = "output";
 	static final String LUCENE_OUT = "lucene_tfidf_run2";
 	static final String CUSTOM_OUT = "";
 	static final String LUCENE_OUT_SEC = "default.txt";
 	static final String CUSTOM_OUT_SEC = "lnn.txt";
+	private static final String CUSTOM_SCORE_FILE = "file.txt";
 	
-	// initialize index searcher to null
+
+	//public static String CBOR_FILE = null;
+	//public static String CBOR = null;
 	
 	private IndexSearcher is = null;
 	
-	// initialize query parser to null
-	
 	private QueryParser qp = null;
 	
-	// initialize custom score
+	
 	
 	private boolean customScore = true; 
 
 	public void indexAllParas(int tfidf) throws CborException, IOException {
-	    
-	    // open Assignment4.INDEX_DIR
-	 
 		Directory indexdir = FSDirectory.open((new File(Assignment4.INDEX_DIR)).toPath());
-		
-		// Builds an analyzer from the given reader
-		
 		IndexWriterConfig conf = new IndexWriterConfig(new StandardAnalyzer());
 		if(customScore)
-		
-		// Set similarity 
-		
 			conf.setSimilarity(this.getCustomSimilarity(tfidf));
 		conf.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-		
-		// create new indewriter instance
-		
 		IndexWriter iw = new IndexWriter(indexdir, conf);
 		for (Data.Paragraph p : DeserializeData.iterableParagraphs(new FileInputStream(new File(Assignment4.CBOR_FILE)))) {
 			this.indexPara(iw, p);
