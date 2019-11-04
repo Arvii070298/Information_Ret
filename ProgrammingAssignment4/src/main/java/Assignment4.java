@@ -107,7 +107,7 @@ public class Assignment4 {
 		return score;
 	}
 	
-	public float BLaplacScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
+	public float BLaplaceScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
 			
 		
 		float score ;
