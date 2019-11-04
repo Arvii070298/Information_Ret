@@ -240,6 +240,7 @@ public class Assignment4 {
 		tds = is.search(q, n);
 		retDocs = tds.scoreDocs;
 		Document d;
+		// array list will dynamically allocate array size
 		ArrayList<String> runStringsForPage = new ArrayList<String>();
 		String method = "customLM"+this.smoothing;
              
