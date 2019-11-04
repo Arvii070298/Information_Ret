@@ -85,33 +85,33 @@ public class Assignment4 {
 		    //Laplace Smoothing (add one ball per color)
 
 
-			protected float score(BasicStats stats, float frequency, float docLen) {
+			protected float score(BasicStats stats, float freq, float docLen) {
 				float score = 0;
 				switch(smoothing){
 				case 1://Laplace
 //arguments include requency, document length and vocabulary size( i.e total number of unique terms )
 				
-					score = ULaplaceScore(frequency, docLen, vocabSize);
+					score = ULaplaceScore(freq, docLen, vocabSize);
 					break;
 					
 // //Jelinek Mercer Smoothing (interpolate with collection urn)
 				case 2://Jelinek-Mercer
-// arguments include frequencyuency, document length and lambda 
+// arguments include frequency, document length and lambda 
 // High value of lambda ; "AND like " retrive all the documents containing query terms
 // Low value of lambda ; "OR like " suitable for long queries
 
-					score = UJMScore(frequency, docLen, lambda, (LMSimilarity.LMStats)stats);
+					score = UJMScore(freq, docLen, lambda, (LMSimilarity.LMStats)stats);
 					break;
 					
 //Dirichlet Smoothing (add 𝜇balls from collection urn)
 				case 3://Dirichlet
-					score = UDirichletScore(frequency, docLen, mu, (LMSimilarity.LMStats)stats);
+					score = UDirichletScore(freq, docLen, mu, (LMSimilarity.LMStats)stats);
 					break;
 
-// arguments include frequencyuency , vocabulary size , document length
+// arguments include frequency , vocabulary size , document length
 
 				case 4://Bigram with Laplace (B-L):
-					score = BLaplaceScore(frequency, docLen, vocabSize,(LMSimilarity.LMStats)stats);
+					score = BLaplaceScore(freq, docLen, vocabSize,(LMSimilarity.LMStats)stats);
 					break;
 				}
 
@@ -135,36 +135,36 @@ public class Assignment4 {
 	
 	
 	}
-	public float ULaplaceScore(float termfrequency, float docLength, long vocabSize){
+	public float ULaplaceScore(float termFreq, float docLength, long vocabSize){
 		//initialze score to zero
 		
 		float score = 0;
 		
-		// term frequency ( how amny times the term is been repeated in document) / vacabulary size ( unique number of terms in corpus)
-		score = (termfrequency+1)/(docLength+vocabSize);
+		// term freq ( how amny times the term is been repeated in document) / vacabulary size ( unique number of terms in corpus)
+		score = (termFreq+1)/(docLength+vocabSize);
 		return score;
 	}
 	
-	public float UJMScore(float termfrequency, float docLength, float lambda, LMSimilarity.LMStats stats){
+	public float UJMScore(float termFreq, float docLength, float lambda, LMSimilarity.LMStats stats){
 		float score;
 		
 		// lambda = 0.9
-		score = lambda*termfrequency/docLength+(1-lambda)*stats.getCollectionProbability();
+		score = lambda*termFreq/docLength+(1-lambda)*stats.getCollectionProbability();
 		return score;
 	}
 	
-	public float UDirichletScore(float termfrequency, float docLength, float mu, LMSimilarity.LMStats stats){
+	public float UDirichletScore(float termFreq, float docLength, float mu, LMSimilarity.LMStats stats){
 		float score;
 		// mu =1000
-		score = (termfrequency+mu*stats.getCollectionProbability()) / (docLength + mu);
+		score = (termFreq+mu*stats.getCollectionProbability()) / (docLength + mu);
 		return score;
 	}
 	
-	public float BLaplaceScore(float termfrequency, float docLength, long vocabSize,LMSimilarity.LMStats stats){
+	public float BLaplaceScore(float termFreq, float docLength, long vocabSize,LMSimilarity.LMStats stats){
 			
 		
 		float score ;
-		score = stats.getBoost()*(termfrequency+1)/(docLength + stats.getTotalTermfrequency());
+		score = stats.getBoost()*(termFreq+1)/(docLength + stats.getTotalTermFreq());
 		return score;
 	}
 	
