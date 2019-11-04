@@ -57,11 +57,23 @@ public class Assignment3 {
 	private boolean customScore = true; 
 
 	public void indexAllParas(int tfidf) throws CborException, IOException {
+	    
+	    // open Assignment4.INDEX_DIR
+	 
 		Directory indexdir = FSDirectory.open((new File(Assignment4.INDEX_DIR)).toPath());
+		
+		// Builds an analyzer from the given reader
+		
 		IndexWriterConfig conf = new IndexWriterConfig(new StandardAnalyzer());
 		if(customScore)
+		
+		// Set similarity 
+		
 			conf.setSimilarity(this.getCustomSimilarity(tfidf));
 		conf.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+		
+		// create new indewriter instance
+		
 		IndexWriter iw = new IndexWriter(indexdir, conf);
 		for (Data.Paragraph p : DeserializeData.iterableParagraphs(new FileInputStream(new File(Assignment4.CBOR_FILE)))) {
 			this.indexPara(iw, p);
