@@ -1,0 +1,21 @@
+JDK Version used - 12.0.2
+Apache-maven version - 3.6.2
+team7/ProgrammingAssignment4/
+
+
+Download the TREC Complex Answer Retrieval “test200“ dataset and unpack
+wget http://trec-car.cs.unh.edu/datareleases/v2.0/test200.v2.0.tar.xz
+
+**tar xf test200.v2.0.tar.xz**
+
+**Directory: //test200/test200-train/train.pages.cbor-article.qrels**
+
+For this program to work on Linux, Maven has to be installed
+
+Instructions to install Maven in Terminal:
+
+**sudo apt install maven**
+
+Program gets complied by
+
+**mvn clean install**
