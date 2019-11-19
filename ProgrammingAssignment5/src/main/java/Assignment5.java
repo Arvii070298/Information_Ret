@@ -16,6 +16,47 @@ import co.nstant.in.cbor.CborException;
 import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 public class Assignment5 {
+    
+public ArrayList<String> produceRankLibFile(ArrayList<HashMap<String, ArrayList<String>>> runMaps, String[] runfiles) throws FileNotFoundException, CborException {
+		String qid, ranklibString, fetValString;
+		double[] v = new double[runMaps.size()];
+		int rank, target = 0;
+		ArrayList<String> rlibStrings = new ArrayList<String>();
+		ArrayList<String> uniqueParaIds = new ArrayList<String>();
+		uniqueParaIds = this.getUniqueParaIds(runfiles);
+		for(Data.Page p:pagelist){
+			qid = p.getPageId();
+			// Do not take all the paras, take only those relevant to the current page
+			for(String paraid:uniqueParaIds){
+				fetValString = "";
+				if(this.relevanceMap.get(qid).contains(paraid))
+					target = 1;
+				else
+					target = 0;
+				for(int i=0; i<runfiles.length; i++){
+					//for(int i=1; i<=runfiles.length; i++){
+					rank = -1;
+					if(runMaps.get(i).keySet().contains(qid))
+					{	/*String s=runMaps.get(i).toString();
+						String[] q=s.split("=");
+						q[0].substring(1); */
+						rank = this.getRank(qid, paraid, runMaps.get(i));}
+					if(rank > 0)
+						v[i] = 1.0/(double)rank;
+					else
+						v[i] = 0;
+					fetValString = fetValString+" "+(i+1)+":"+v[i];
+				}
+				ranklibString = target+" qid:"+(qid+fetValString)+" #"+paraid;
+				rlibStrings.add(ranklibString);
+				
+			}
+		}
+		return rlibStrings;
+	}
+
+
+
 
 
 
