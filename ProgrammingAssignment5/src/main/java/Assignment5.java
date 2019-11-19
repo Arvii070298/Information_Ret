@@ -62,7 +62,8 @@ public ArrayList<String> produceRankLibFile(ArrayList<HashMap<String, ArrayList<
 				else
 					target = 0;
 				for(int i=0; i<runfiles.length; i++){
-					//for(int i=1; i<=runfiles.length; i++){
+				    
+					
 					rank = -1;
 					if(runMaps.get(i).keySet().contains(qid))
 					{	/*String s=runMaps.get(i).toString();
