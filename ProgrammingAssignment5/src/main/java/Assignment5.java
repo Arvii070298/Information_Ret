@@ -17,6 +17,34 @@ import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 public class Assignment5 {
     
+
+public HashMap<String, ArrayList<String>> getRunFileMap(String runfile){
+		HashMap<String, ArrayList<String>> runfileMap = new HashMap<String, ArrayList<String>>();
+		BufferedReader br;
+		try{
+			br = new BufferedReader(new FileReader(runfile));
+			String line;
+			String[] lineData = new String[6];
+			while((line = br.readLine()) != null){
+				lineData = line.split(" ");
+				if(runfileMap.keySet().contains(lineData[0]))
+					runfileMap.get(lineData[0]).add(lineData[2]);
+				else{
+					ArrayList<String> curr = new ArrayList<String>();
+					curr.add(lineData[2]);
+					runfileMap.put(lineData[0], curr);
+				}
+			}
+			br.close();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		return runfileMap;
+	}
+
+
+
+
 public ArrayList<String> produceRankLibFile(ArrayList<HashMap<String, ArrayList<String>>> runMaps, String[] runfiles) throws FileNotFoundException, CborException {
 		String qid, ranklibString, fetValString;
 		double[] v = new double[runMaps.size()];
