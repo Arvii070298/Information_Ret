@@ -19,28 +19,32 @@ public class Assignment5 {
 
 
 
-	public HashMap<String, ArrayList<String>> getRunFileMap(String runfile){
-		HashMap<String, ArrayList<String>> runfileMap = new HashMap<String, ArrayList<String>>();
-		BufferedReader br;
-		try{
-			br = new BufferedReader(new FileReader(runfile));
-			String line;
-			String[] lineData = new String[6];
-			while((line = br.readLine()) != null){
-				lineData = line.split(" ");
-				if(runfileMap.keySet().contains(lineData[0]))
-					runfileMap.get(lineData[0]).add(lineData[2]);
-				else{
-					ArrayList<String> curr = new ArrayList<String>();
-					curr.add(lineData[2]);
-					runfileMap.put(lineData[0], curr);
+public ArrayList<String> question1(String[][] rankings){
+		ArrayList<String> rlibStrings = new ArrayList<String>();
+		String qid, ranklibString, fetValString;
+		int noOfDocs = 12, noOfFeatures = 4, rank = 0, target = 0;
+		double[] v = new double[noOfFeatures];
+		for(int i=1; i<=noOfDocs; i++){
+			target = 0;
+			fetValString = "";
+			for(int j=1; j<=noOfFeatures; j++){
+				rank = this.getRank(i, rankings[j-1]);
+				if(rank > 0){
+					v[j-1] = 1.0/(double)rank;
+					target = 1;
 				}
+				else{
+					v[j-1] = 0;
+				}
+				fetValString = fetValString+" "+j+":"+v[j-1];
 			}
-			br.close();
-		} catch (Exception e){
-			e.printStackTrace();
+			if(target > 0){
+				ranklibString = target+" qid:q1"+fetValString+" #D"+i;
+				rlibStrings.add(ranklibString);
+				System.out.println(ranklibString);
+			}
 		}
-		return runfileMap;
+		return rlibStrings;
 	}
 	
 		public int getRank(int d, String[] ranking){
