@@ -215,7 +215,7 @@ public class Assignment5 {
 				"output_lm/lncltn", "output_lm/bnnbnn"};
 		for(int i=0; i<runs.length; i++)
 			runMaps.add(a5.getRunFileMap(runs[i]));
-		//String[] runs = {"output_lm/a5laplace", "output_lm/a5jms", "output_lm/a5dir", "output_lm/lnc_ltn", "output_lm/a5bnn_bnn"};
+		
  		try {
  			
  			FileWriter fw = new FileWriter(Assignment5.RLOUTPUT, true);
