@@ -211,8 +211,8 @@ public class Assignment5 {
 				{"D1","D2","D8","D10","D12"}
 		};
 		
-		String[] runs = {"output_lm/laplace", "output_lm/jms", "output_lm/dir",
-				"output_lm/lncltn", "output_lm/bnnbnn"};
+		String[] runs = {"output_lm/UL.txt", "output_lm/U-JM.txt", "output_lm/U-DS.txt",
+				"output_lm/lnc.txt", "output_lm/bnn.txt"};
 		for(int i=0; i<runs.length; i++)
 			runMaps.add(a5.getRunFileMap(runs[i]));
 		
