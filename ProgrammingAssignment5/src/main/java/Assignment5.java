@@ -147,20 +147,16 @@ public class Assignment5 {
 		uniqueParaIds = this.getUniqueParaIds(runfiles);
 		for(Data.Page p:pagelist){
 			qid = p.getPageId();
-			// Do not take all the paras, take only those relevant to the current page
-			for(String paraid:uniqueParaIds){
+			for(String paraid:uniqueParaIds){ //relevant 
 				fetValString = "";
 				if(this.relevanceMap.get(qid).contains(paraid))
 					target = 1;
 				else
 					target = 0;
 				for(int i=0; i<runfiles.length; i++){
-					//for(int i=1; i<=runfiles.length; i++){
 					rank = -1;
 					if(runMaps.get(i).keySet().contains(qid))
-					{	/*String s=runMaps.get(i).toString();
-						String[] q=s.split("=");
-						q[0].substring(1); */
+					{
 						rank = this.getRank(qid, paraid, runMaps.get(i));}
 					if(rank > 0)
 						v[i] = 1.0/(double)rank;
