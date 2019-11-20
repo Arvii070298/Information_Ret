@@ -64,6 +64,7 @@ public class Assignment3 {
 		SimilarityBase mySimiliarity = new SimilarityBase() {
 			
 			protected float score(BasicStats stats, float freq, float docLen) {
+			    // frescore initialized = 0
 				float freqScore = 0;
 				switch(tfidf){
 				case 1:
@@ -79,6 +80,7 @@ public class Assignment3 {
 				
 					
 				}
+				// return frescore
 				return freqScore;
 			}
 
