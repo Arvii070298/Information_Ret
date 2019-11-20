@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -70,7 +69,7 @@ public class Assignment5 {
 		}
 		return paraids;
 	}
-	public void doStuff() throws ParseException{
+	public void output() throws ParseException{
 		Assignment3 a3 = new Assignment3();
 		a4Laplace = new Assignment4(1);
 		a4JMS = new Assignment4(2);
@@ -224,7 +223,7 @@ public class Assignment5 {
  		try {
  			
  			FileWriter fw = new FileWriter(Assignment5.RLOUTPUT, true);
-			a5.doStuff();
+			a5.output();
 			a5.question1(rankings);
 			
 			for(String s:a5.produceRankLibFile(runMaps, runs)){
