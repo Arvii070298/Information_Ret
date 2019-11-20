@@ -127,6 +127,7 @@ public class Assignment5 {
 	}
 	
 	public int getRank(int d, String[] ranking){
+	    //intialize rank and count
 		int rank = -1, count = 1;
 		for(int i=0; i<ranking.length; i++){
 			if(ranking[i].equals("D"+d)){
