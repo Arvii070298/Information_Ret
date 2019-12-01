@@ -98,7 +98,7 @@
                 <archive>
                     <manifest>
                         <addClasspath>true</addClasspath>
-                        <mainClass>assign2</mainClass>
+                        <mainClass>step1</mainClass>
                     </manifest>
                 </archive>
                 <descriptorRefs>
