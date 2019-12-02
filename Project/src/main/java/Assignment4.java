@@ -1,4 +1,3 @@
-
 import java.io.File;
 
 import java.io.FileInputStream;
@@ -54,8 +53,8 @@ public class Assignment4 {
 // initialize smoothing 
 	private int smoothing ;
 	static final String INDEX_DIR = "index";
-	static String CBOR_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
-	static  String CBOR = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
+//	static String CBOR_FILE = "D:/test200/test200-train/train.pages.cbor-paragraphs.cbor";
+//	static  String CBOR = "D:/test200/test200-train/train.pages.cbor-outlines.cbor";
 	private static final String CUSTOM_SCORE_FILE = "file.txt";
 	
 	// custom out
@@ -348,11 +347,11 @@ public class Assignment4 {
 	}
 
 	public static void main(String[] args) {
-		//final String CBOR = args[1];
+		final String CBOR = args[1];
 
-		// final String CBOR_FILE = args[0]; 
-	// initialze x=0
-		 int x=0;
+		 final String CBOR_FILE = args[0]; 
+	 initialze x=args[2];
+	//	 int x=0;
 		x=Integer.parseInt("3");
 		 
 		 		Assignment4 a4 = new Assignment4(x);
