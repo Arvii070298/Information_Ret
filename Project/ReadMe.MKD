@@ -5,7 +5,7 @@ Sai Arvind Reddy Desireddy
 JDK Version used - 12.0.2  
 Apache-maven version - 3.6.2  
 team7/Project/  
-
+We have used "Benchmarky1-train" dataset from TRECCAR
 Download bash.sh and run the file
 
 
