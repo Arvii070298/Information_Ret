@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -36,6 +35,7 @@ public class ChampionList {
 	
 	 public static List<String> tokenizeString(Analyzer analyzer, String string) {
 	   	 List<String> tokens = new ArrayList<>();
+	   	 //converting a string to array list
 	   	  try (TokenStream tokenStream  = analyzer.tokenStream(null, new StringReader(string))) {
 	   	    tokenStream.reset();  // required
 	   	    while (tokenStream.incrementToken()) {
@@ -59,7 +59,10 @@ public class ChampionList {
 		new step2();
 		step2.File=File;
 		step2.io=1;
+		//index searcher is a class which can call any of its method
 		IndexSearcher searcher=step2.Similarity(1);
+		
+//initialize max results		
 		
 int maxResults = 100;
         
@@ -92,6 +95,7 @@ map.put(queryId, list);
 
         
         FileWriter fw = new FileWriter("ChampionList.txt", true);
+        //creates a filewriter object
 		for(String runString:out)
 			fw.write(runString+"\n");
 		fw.close();
@@ -136,6 +140,7 @@ map.put(queryId, list);
 		}
 		
 		StandardAnalyzer analyzer = new StandardAnalyzer();
+		//creates an analyzer
 		token_list=tokenizeString(analyzer, s);
 		updated_map.put(id,(double) token_list.size());
 
@@ -145,9 +150,14 @@ map.put(queryId, list);
 		
 		
 		 HashMap<String,Double> l=new HashMap<String, Double>();
+		 // creating an hashmap table
 		
 		 HashMap<String,HashMap<String, Double>> ma=new HashMap<String, HashMap<String,Double>>();
+		 //map.entry interface provides access to the entry in the map
+		 
+		 
 		 for (Map.Entry<String, String> que: queries.entrySet()) {
+		     // so that it is easy to maupulate them
 			 l=rank_map.get(que.getKey());
 			 HashMap<String,Double> qwe=new HashMap<String, Double>();
 			 double score= updated_map.get(que.getKey());
