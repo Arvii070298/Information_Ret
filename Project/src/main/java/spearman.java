@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class spearman {
+    //spearman correlation
 //private static String file="C:PATH/assign01/default.txt";
 //private static String file1="C:PATHassign01/anc.txt";
   //private static String qrelsFilePath="D://test200/test200-train/train.pages.cbor-article.qrels";
