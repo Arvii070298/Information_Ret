@@ -6,21 +6,8 @@ JDK Version used - 12.0.2
 Apache-maven version - 3.6.2  
 team7/Project/  
 
-Download the TREC Complex Answer Retrieval “benchmark y1 train“ dataset and unpack
-
-For this program to work on Linux, Maven has to be installed
-Instructions to install Maven in Terminal:
-sudo apt install maven
-
-Program gets complied by
-mvn clean compile assembly:single
+Download bash.sh and run the file
 
 
-Download evaluation program trec eval
-http://trec.nist.gov/trec_eval/  
-MAP
-./trec_eval -m map /ADD PATH/base.train.cbor-article.qrels /ADD PATH/final.txt 
-
-NDCG20
-./trec_eval -m ndcg_cut.20 /ADD PATH/base.train.cbor-article.qrels /ADD PATH/final.txt 
+ 
 
