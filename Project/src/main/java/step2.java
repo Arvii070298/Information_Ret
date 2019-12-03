@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,6 +51,7 @@ import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 
 public class step2 {
+    ///tf-idf and Unigram done here
 	static  String File ;
     private static final String INDEX_DIR = "index";
     static String PARAGRAPH_FILE ;
