@@ -22,3 +22,4 @@ rm trec_eval_latest.tar.gz
 
 mvn clean install
 
+java -jar target/project-1.0-SNAPSHOT-jar-with-dependencies.jar benchmarkY1/benchmarkY1-train/train.pages.cbor-paragraphs.cbor benchmarkY1/benchmarkY1-train/train.pages.cbor-outlines.cbor benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels
