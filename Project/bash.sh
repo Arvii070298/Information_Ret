@@ -6,8 +6,8 @@ sudo apt install maven
 
 echo "----------------clone---------------"
 
-git clone https://gitlab.cs.unh.edu/cs753-853-2019/team7/Project.git
-
+git clone https://gitlab.cs.unh.edu/cs753-853-2019/team7.git
+cd team7/Project/
 
 wget http://trec-car.cs.unh.edu/datareleases/v2.0/benchmarkY1-train.v2.0.tar.xz
 
