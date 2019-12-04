@@ -6,7 +6,11 @@ JDK Version used - 12.0.2
 Apache-maven version - 3.6.2  
 team7/Project/  
 We have used "Benchmarky1-train" dataset from TRECCAR  
-Download bash.sh and run the file (no need of git cloning initially to get bash file)
+(no need of git cloning initially to get bash file)
+Download bash.sh and run the file  
+*chmod a+x bash.sh
+./bash.sh*
+****
 
 
  
