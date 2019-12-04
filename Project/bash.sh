@@ -48,7 +48,7 @@ echo "------------------------------------------BNN.BNN Results-----------------
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Lap.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------UJM Results--------------------------------------")
+ echo "------------------------------------------UJM Results--------------------------------------" 
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Jm.txt -m map -m Rprec -m ndcg_cut.20
  
  
