@@ -27,24 +27,24 @@ java -jar target/project-1.0-SNAPSHOT-jar-with-dependencies.jar benchmarkY1/benc
 cd trec_eval*
 make
 
-echo("------------------------------------------BM25 Results:------------------------------------")
+echo "------------------------------------------BM25 Results:------------------------------------"
 ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../BM25.txt -m map -m Rprec -m ndcg_cut.20
 
 
-echo("------------------------------------------LNC.LTN Results--------------------------------------")
+echo "------------------------------------------LNC.LTN Results--------------------------------------"
 ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../LNC.txt -m map -m Rprec -m ndcg_cut.20
 
 
-echo("------------------------------------------BNN.BNN Results--------------------------------------")
+echo "------------------------------------------BNN.BNN Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../BNN.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------ANC.APN Results--------------------------------------")
+ echo "------------------------------------------ANC.APN Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../ANC.txt -m map -m Rprec -m ndcg_cut.20
  
  
  
- echo("------------------------------------------UL Results--------------------------------------")
+ echo "------------------------------------------UL Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Lap.txt -m map -m Rprec -m ndcg_cut.20
  
  
@@ -52,23 +52,23 @@ echo("------------------------------------------BNN.BNN Results-----------------
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Jm.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------UD Results--------------------------------------")
+ echo "------------------------------------------UD Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Dir.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------bi_word Results--------------------------------------")
+ echo "------------------------------------------bi_word Results--------------------------------------" 
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../biword.txt -m map -m Rprec -m ndcg_cut.20
  
  
  
- echo("------------------------------------------Champion List Results--------------------------------------")
+ echo "------------------------------------------Champion List Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../ChampionList.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------IndexElimination Results--------------------------------------")
+ echo "------------------------------------------IndexElimination Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../IndexElimination.txt -m map -m Rprec -m ndcg_cut.20
  
- echo("------------------------------------------L2R Results--------------------------------------")
+ echo "------------------------------------------L2R Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../new_L2R.txt -m map -m Rprec -m ndcg_cut.20
  
  
