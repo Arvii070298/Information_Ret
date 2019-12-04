@@ -31,28 +31,28 @@ echo("------------------------------------------BM25 Results:-------------------
 ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../BM25.txt -m map -m Rprec -m ndcg_cut.20
 
 
-echo("------------------------------------------LNC Results--------------------------------------")
+echo("------------------------------------------LNC.LTN Results--------------------------------------")
 ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../LNC.txt -m map -m Rprec -m ndcg_cut.20
 
 
-echo("------------------------------------------BNN Results--------------------------------------")
+echo("------------------------------------------BNN.BNN Results--------------------------------------")
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../BNN.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------APC Results--------------------------------------")
+ echo("------------------------------------------ANC.APN Results--------------------------------------")
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../ANC.txt -m map -m Rprec -m ndcg_cut.20
  
  
  
- echo("------------------------------------------LAP Results--------------------------------------")
+ echo("------------------------------------------UL Results--------------------------------------")
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Lap.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------Jm Results--------------------------------------")
+ echo("------------------------------------------UJM Results--------------------------------------")
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Jm.txt -m map -m Rprec -m ndcg_cut.20
  
  
- echo("------------------------------------------Dir Results--------------------------------------")
+ echo("------------------------------------------UD Results--------------------------------------")
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../Dir.txt -m map -m Rprec -m ndcg_cut.20
  
  
