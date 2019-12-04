@@ -8,7 +8,7 @@ team7/Project/
 We have used "Benchmarky1-train" dataset from TRECCAR  
 (no need of git cloning initially to get bash file)
 Download bash.sh and run the file  
-
+command
 *chmod a+x bash.sh  
 ./bash.sh*
 
