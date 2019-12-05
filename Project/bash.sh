@@ -24,6 +24,9 @@ mvn clean install
 
 java -jar target/project-1.0-SNAPSHOT-jar-with-dependencies.jar benchmarkY1/benchmarkY1-train/train.pages.cbor-paragraphs.cbor benchmarkY1/benchmarkY1-train/train.pages.cbor-outlines.cbor benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels
 
+ 
+
+
 cd trec_eval*
 make
 
@@ -68,10 +71,10 @@ echo "------------------------------------------BNN.BNN Results-----------------
  echo "------------------------------------------IndexElimination Results--------------------------------------"
  ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../IndexElimination.txt -m map -m Rprec -m ndcg_cut.20
  
+ cd ..
  echo "------------------------------------------L2R Results--------------------------------------"
- ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../new_L2R.txt -m map -m Rprec -m ndcg_cut.20
- 
- 
+ java -jar RankLib.jar -train new_L2R.txt -ranker 4 -kcv 5  -save ./benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels -metric2t MAP
+
  
  
 
