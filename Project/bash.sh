@@ -30,6 +30,9 @@ java -jar target/project-1.0-SNAPSHOT-jar-with-dependencies.jar benchmarkY1/benc
 cd trec_eval*
 make
 
+mkdir results
+cd results
+
 echo "------------------------------------------BM25 Results:------------------------------------"
 ./trec_eval ../benchmarkY1/benchmarkY1-train/train.pages.cbor-article.qrels ../BM25.txt -m map -m Rprec -m ndcg_cut.20
 
