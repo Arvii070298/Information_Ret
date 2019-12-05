@@ -11,9 +11,6 @@ Download bash.sh and run the file
 command
 *chmod a+x bash.sh  
 ./bash.sh*
-run the L2R results at the very end to check the learning to rank model results
-
-
 
  
 
